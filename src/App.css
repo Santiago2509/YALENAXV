@@ -1,0 +1,91 @@
+.mobile-container {
+  width: 100%;
+  max-width: 480px; /* Tamaño máximo para simular un celular en escritorio */
+  height: 100vh;
+  position: relative;
+  background-image: url('/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Sombra para resaltar en escritorio */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.envelope-wrapper {
+  position: relative;
+  width: 80%;
+  max-width: 350px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.envelope-image {
+  width: 100%;
+  height: auto;
+  /* Aplicamos sepia y hue-rotate para teñir la carta de un tono rosado cálido, y bajamos el brillo para que no resalte tanto */
+  filter: drop-shadow(0 25px 35px rgba(160, 60, 90, 0.5)) drop-shadow(0 5px 10px rgba(100, 30, 50, 0.4)) sepia(0.4) hue-rotate(-25deg) saturate(1.1) brightness(0.9);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.envelope-wrapper:hover .envelope-image {
+  transform: scale(1.02);
+}
+
+.arrow-hint {
+  position: absolute;
+  top: 68%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #400010; /* Color vino extremadamente oscuro casi negro para máximo contraste */
+  font-size: 2.2rem; /* Un poco más grande para mejor lectura */
+  font-weight: bold;
+  font-family: 'Great Vibes', cursive;
+  text-shadow: 
+    1px 1px 0px rgba(255, 255, 255, 1),
+    -1px -1px 0px rgba(255, 255, 255, 1),
+    1px -1px 0px rgba(255, 255, 255, 1),
+    -1px 1px 0px rgba(255, 255, 255, 1),
+    0px 0px 15px rgba(255, 255, 255, 1); /* Borde blanco sólido y resplandor para que resalte en cualquier fondo */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  pointer-events: none;
+  animation: float 2s infinite ease-in-out;
+  text-align: center;
+  line-height: 1.2;
+  z-index: 20;
+}
+
+@keyframes float {
+  0% { transform: translateX(-50%) translateY(0px); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+  100% { transform: translateX(-50%) translateY(0px); }
+}
+
+/* Luz rosada parpadeante suave encima del sello */
+.seal-highlight {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,105,180,0.6) 0%, rgba(255,105,180,0) 70%);
+  animation: softGlow 2s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 20; /* Asegurarnos de que esté por encima de la imagen del sobre */
+}
+
+@keyframes softGlow {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+  50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+}
