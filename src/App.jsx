@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import BackgroundEffects from './BackgroundEffects';
+import InsideCard from './InsideCard';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,10 +24,9 @@ function App() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ scale: 1.5, opacity: 0, filter: 'blur(10px)' }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            onClick={handleOpen}
           >
-            {/* Animación del destello detrás del sello para llamar la atención */}
-            <div className="seal-highlight"></div>
+            {/* Animación del destello sobre el sello. Ahora este es el único elemento clickeable */}
+            <div className="seal-highlight" onClick={handleOpen}></div>
             
             <motion.img 
               src="/sobre.png" 
@@ -68,23 +68,7 @@ function App() {
       </AnimatePresence>
 
       {/* Aquí irá el contenido de la tarjeta una vez abierta */}
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
-          style={{
-            background: 'rgba(255, 255, 255, 0.9)',
-            padding: '2rem',
-            borderRadius: '15px',
-            textAlign: 'center',
-            boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-          }}
-        >
-          <h1 style={{ color: '#d81b60', marginBottom: '1rem', fontFamily: 'serif' }}>Mis 15 Años</h1>
-          <p>¡Próximamente más detalles!</p>
-        </motion.div>
-      )}
+      {isOpen && <InsideCard />}
     </div>
   );
 }

@@ -19,7 +19,7 @@
   position: relative;
   width: 80%;
   max-width: 350px;
-  cursor: pointer;
+  /* El cursor pointer y el click ahora están solo en el sello */
   z-index: 10;
   display: flex;
   flex-direction: column;
@@ -80,7 +80,8 @@
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255,105,180,0.6) 0%, rgba(255,105,180,0) 70%);
   animation: softGlow 2s ease-in-out infinite;
-  pointer-events: none;
+  pointer-events: auto; /* Permitir clicks solo en esta área */
+  cursor: pointer;
   z-index: 20; /* Asegurarnos de que esté por encima de la imagen del sobre */
 }
 
@@ -88,4 +89,94 @@
   0% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
   50% { transform: translate(-50%, -50%) scale(1.4); opacity: 0.9; }
   100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+}
+
+/* --- INSIDE CARD STYLES --- */
+.inside-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 50; /* Por encima de todo */
+}
+
+.card-header {
+  text-align: center;
+  padding: 30px 20px;
+  background-color: #fafafa;
+}
+
+.card-header h1 {
+  font-family: 'Great Vibes', cursive;
+  color: #b58843; /* Dorado elegante */
+  font-size: 3.5rem;
+  margin: 0;
+  font-weight: 400;
+}
+
+.photo-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.quinceanera-photo {
+  width: 100%;
+  height: auto;
+  max-height: 60vh;
+  object-fit: cover;
+  display: block;
+  /* Efecto de difuminado suave en los bordes superior e inferior */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.torn-edge {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 60px; /* Altura del borde rasgado más orgánico y ancho */
+  z-index: 2;
+}
+
+.torn-edge.top {
+  top: -1px;
+}
+
+.torn-edge.bottom {
+  bottom: -1px;
+  transform: rotate(180deg); /* Voltear para que el borde rasgado apunte hacia arriba */
+}
+
+.torn-edge svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0px 3px 4px rgba(0,0,0,0.25)); /* Sombra para dar realismo 3D al papel rasgado */
+}
+
+.card-message {
+  text-align: center;
+  padding: 40px 30px;
+  background-color: #fafafa;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-message p {
+  font-family: 'Great Vibes', cursive;
+  color: #7a7a7a;
+  font-size: 1.8rem;
+  line-height: 1.4;
+  margin: 0;
 }
