@@ -98,7 +98,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fafafa;
+  background-image: url('/fondo_nubes.png'); /* Fondo de nubes solo para el interior */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
@@ -109,7 +112,7 @@
 .card-header {
   text-align: center;
   padding: 30px 20px;
-  background-color: #fafafa;
+  background-color: transparent;
 }
 
 .card-header h1 {
@@ -125,7 +128,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background-color: #fafafa;
+  background-color: transparent;
 }
 
 .quinceanera-photo {
@@ -166,7 +169,7 @@
 .card-message {
   text-align: center;
   padding: 40px 30px;
-  background-color: #fafafa;
+  background-color: transparent;
   flex-grow: 1;
   display: flex;
   align-items: center;
@@ -176,7 +179,324 @@
 .card-message p {
   font-family: 'Great Vibes', cursive;
   color: #7a7a7a;
-  font-size: 1.8rem;
+  font-size: 2.3rem; /* Aumentado */
   line-height: 1.4;
   margin: 0;
+}
+
+/* --- NEW COMPONENTS STYLES --- */
+
+/* Typography */
+.font-cursive { font-family: 'Great Vibes', cursive; }
+.font-serif { font-family: 'Playfair Display', serif; }
+.font-parents { font-family: 'Cormorant Garamond', serif; }
+
+/* Metallic Text Effect */
+.metallic-text {
+  background: linear-gradient(to right, #9c7335 0%, #fdf5a9 30%, #9c7335 60%, #9c7335 100%);
+  background-size: 200% auto;
+  color: transparent !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  animation: shine 4s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+.font-sans { font-family: 'Montserrat', sans-serif; }
+
+/* Dividers */
+.section-divider {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+.section-divider.small {
+  margin: 20px 0;
+}
+
+.churro-divider {
+  width: 80%;
+  max-width: 250px;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.parents-section {
+  margin-bottom: 20px;
+}
+
+.parents-intro {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #7a7a7a;
+  margin-bottom: 15px;
+}
+
+.parents-names {
+  font-family: 'Great Vibes', cursive;
+  color: #b58843;
+  font-size: 2.6rem;
+  font-weight: 400;
+  line-height: 1.3;
+  text-transform: none;
+  letter-spacing: 1px;
+}
+
+.parents-and {
+  font-family: 'Great Vibes', cursive;
+  color: #b58843;
+  font-size: 1.5rem;
+  margin: 5px 0;
+}
+
+.quinceanera-name {
+  font-family: 'Great Vibes', cursive;
+  color: #b58843;
+  font-size: 4rem;
+  line-height: 1.1;
+  margin: 20px 0;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Event Details Section */
+.event-details-section, .gifts-section, .rsvp-section {
+  padding: 0 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  color: #4a4a4a;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.details-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.detail-card {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(181, 136, 67, 0.3);
+  border-radius: 15px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.detail-icon {
+  color: #b58843;
+  margin-bottom: 15px;
+}
+
+.detail-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #7a7a7a;
+  margin-bottom: 10px;
+}
+
+.detail-highlight {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #4a4a4a;
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.time-text {
+  font-family: 'Montserrat', sans-serif;
+  color: #4a4a4a;
+}
+
+.action-button {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 25px;
+  background-color: #b58843;
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px rgba(181, 136, 67, 0.4);
+  transition: transform 0.2s, background-color 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.action-button:hover {
+  background-color: #9c7335;
+  transform: translateY(-2px);
+}
+
+/* Dress Code & Gifts */
+.dress-code-text {
+  color: #b58843;
+}
+
+.gifts-container {
+  margin-top: 20px;
+}
+
+.gift-icon-container {
+  margin: 20px 0;
+}
+
+.gift-text {
+  font-family: 'Montserrat', sans-serif;
+  color: #4a4a4a;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.lluvia-sobres-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  color: #b58843;
+}
+
+/* RSVP Form */
+.rsvp-subtitle {
+  font-family: 'Montserrat', sans-serif;
+  color: #7a7a7a;
+  margin-bottom: 30px;
+  font-size: 0.9rem;
+}
+
+.rsvp-form {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 25px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(181, 136, 67, 0.3);
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #4a4a4a;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.9);
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #b58843;
+}
+
+.radio-group {
+  display: flex;
+  gap: 20px;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  color: #4a4a4a;
+  cursor: pointer;
+  text-transform: none !important;
+  font-size: 1rem !important;
+  letter-spacing: 0 !important;
+}
+
+.radio-label input[type="radio"] {
+  accent-color: #b58843;
+  width: 18px;
+  height: 18px;
+}
+
+.rsvp-submit {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.expand-animation {
+  overflow: hidden;
+}
+
+/* Butterflies */
+.butterflies-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.butterfly {
+  position: absolute;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+}
+
+/* Corner Ornaments */
+.corner-ornament {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.top-left {
+  top: 10px;
+  left: 10px;
+}
+
+.top-right {
+  top: 10px;
+  right: 10px;
+}
+
+.bottom-left {
+  bottom: 10px;
+  left: 10px;
+}
+
+.bottom-right {
+  bottom: 10px;
+  right: 10px;
 }

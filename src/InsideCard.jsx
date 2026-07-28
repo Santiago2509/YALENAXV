@@ -1,8 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import './App.css';
-
-import { useMemo } from 'react';
+import HeroSection from './components/HeroSection';
+import EventDetails from './components/EventDetails';
+import GiftsSection from './components/GiftsSection';
+import RsvpForm from './components/RsvpForm';
+import Butterflies from './components/Butterflies';
+import { CosmicVine, CosmicVineAlt } from './components/CornerOrnaments';
 
 const InsideCard = () => {
   return (
@@ -12,32 +15,19 @@ const InsideCard = () => {
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
     >
-      <div className="card-header">
-        <motion.h1 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          Mis 15 años
-        </motion.h1>
-      </div>
+      <Butterflies />
 
-      <div className="photo-container">
-        
-        <img src="/quinceañera.png" alt="Quinceañera" className="quinceanera-photo" />
-
-      </div>
-
-      <div className="card-message">
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.5 }}
-        >
-          Para vivir las emociones de este día tan importante, <br/>
-          quiero estar al lado de personas especiales como tú!
-        </motion.p>
-      </div>
+      <CosmicVine flipX={true} delay={0.5} absoluteTopRight={true} />
+      <HeroSection />
+      
+      <CosmicVine flipX={false} delay={0.2} />
+      <EventDetails />
+      
+      <CosmicVineAlt flipX={true} delay={0.2} />
+      <GiftsSection />
+      
+      <CosmicVine flipX={false} delay={0.2} />
+      <RsvpForm />
     </motion.div>
   );
 };
