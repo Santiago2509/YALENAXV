@@ -105,7 +105,7 @@ const RsvpForm = () => {
         viewport={{ once: true }}
         transition={{ duration: 1, delay: 0.3 }}
       >
-        Por favor, confírmame si podrás acompañarme en este día tan especial.
+        Por favor, confírmame si podrás acompañarme en este día tan especial.<br/><br/><strong style={{ color: '#b58843', fontSize: '1.1rem' }}>La confirmación de asistencia es de carácter obligatorio.</strong>
       </motion.p>
 
       <motion.form 

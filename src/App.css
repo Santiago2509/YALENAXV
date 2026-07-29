@@ -367,7 +367,9 @@
   font-family: 'Montserrat', sans-serif;
   color: #000000;
   line-height: 1.6;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 0px 0px 5px rgba(255, 255, 255, 1);
 }
 
 .lluvia-sobres-text {
@@ -382,7 +384,10 @@
   font-family: 'Montserrat', sans-serif;
   color: #000000;
   margin-bottom: 30px;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 0px 0px 5px rgba(255, 255, 255, 1);
+  line-height: 1.5;
 }
 
 .rsvp-form {
