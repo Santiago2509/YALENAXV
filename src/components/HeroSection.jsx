@@ -49,6 +49,38 @@ const HeroSection = () => {
         </motion.h1>
       </div>
 
+      {/* Indicador elegante de Scroll movido aquí para que sea visible en la primera pantalla */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5, duration: 2 }}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginTop: '10px',
+          marginBottom: '15px'
+        }}
+      >
+        <span style={{ 
+          fontFamily: 'Montserrat, sans-serif', 
+          fontSize: '0.7rem', 
+          textTransform: 'uppercase', 
+          letterSpacing: '2px', 
+          color: '#b58843',
+          marginBottom: '10px'
+        }}>
+          Desliza
+        </span>
+        <div style={{ height: '40px', width: '1.5px', background: 'rgba(181, 136, 67, 0.2)', position: 'relative', overflow: 'hidden', borderRadius: '2px' }}>
+          <motion.div 
+            animate={{ top: ['-100%', '100%'] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+            style={{ position: 'absolute', left: 0, right: 0, height: '100%', background: 'linear-gradient(to bottom, transparent, #b58843, #d4af37, transparent)' }}
+          />
+        </div>
+      </motion.div>
+
       <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', position: 'relative', zIndex: 5, marginTop: '-20px', marginBottom: '-10px' }}>
         <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
           <CosmicVine flipX={false} delay={0.6} customStyle={{ padding: '0 10px' }} />
@@ -91,38 +123,6 @@ const HeroSection = () => {
           Para vivir la magia y las emociones de este día tan especial, quiero estar rodeada de las personas que más amo. ¡Acompáñame a celebrar!
         </motion.p>
       </div>
-
-      {/* Indicador elegante de Scroll */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.5, duration: 2 }}
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          marginTop: '40px',
-          paddingBottom: '30px'
-        }}
-      >
-        <span style={{ 
-          fontFamily: 'Montserrat, sans-serif', 
-          fontSize: '0.75rem', 
-          textTransform: 'uppercase', 
-          letterSpacing: '3px', 
-          color: '#b58843',
-          marginBottom: '15px'
-        }}>
-          Desliza para descubrir
-        </span>
-        <div style={{ height: '60px', width: '1.5px', background: 'rgba(181, 136, 67, 0.2)', position: 'relative', overflow: 'hidden', borderRadius: '2px' }}>
-          <motion.div 
-            animate={{ top: ['-100%', '100%'] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-            style={{ position: 'absolute', left: 0, right: 0, height: '100%', background: 'linear-gradient(to bottom, transparent, #b58843, #d4af37, transparent)' }}
-          />
-        </div>
-      </motion.div>
 
     </div>
   );
