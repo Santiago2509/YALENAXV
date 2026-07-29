@@ -7,8 +7,8 @@ const HeroSection = () => {
     <div className="hero-section">
       <div className="card-header" style={{ paddingTop: '30px' }}>
         <motion.p
-          className="parents-intro"
-          style={{ marginBottom: '-10px', fontSize: '1.1rem', color: '#000000', letterSpacing: '2px' }}
+          className="font-cursive metallic-text"
+          style={{ marginBottom: '-5px', fontSize: '2.8rem', fontWeight: 400, margin: 0 }}
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
