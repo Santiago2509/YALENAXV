@@ -68,7 +68,7 @@ const EventDetails = () => {
           </div>
           <h3>Recepción</h3>
           <p className="detail-highlight" style={{ fontSize: '1.3rem' }}>29 de Agosto</p>
-          <p className="time-text" style={{ marginBottom: '15px' }}>a las 7:00 PM</p>
+          <p className="time-text" style={{ marginBottom: '15px' }}>a las 6:00 PM</p>
           
           <p className="detail-highlight" style={{ fontSize: '1.1rem' }}>Salón la Tangueñita</p>
           <p>Tangua, Nariño</p>

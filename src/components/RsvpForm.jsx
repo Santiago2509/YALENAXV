@@ -33,10 +33,10 @@ const RsvpForm = () => {
       const validNames = names.filter(n => n.trim() !== '');
       if (validNames.length === 0) throw new Error('Debes ingresar al menos un nombre');
 
-      const insertData = validNames.map(name => ({
-        full_name: name.trim(),
+      const insertData = [{
+        full_name: validNames.map(n => n.trim()).join('\n'),
         with_plus_one: false,
-      }));
+      }];
 
       const { error } = await supabase
         .from('rsvp_confirmations')

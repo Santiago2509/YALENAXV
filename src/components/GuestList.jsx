@@ -92,7 +92,13 @@ const GuestList = () => {
                       borderBottom: '1px solid rgba(212, 175, 55, 0.2)'
                     }}
                   >
-                    <td style={{ padding: '15px', fontWeight: 'bold' }}>{guest.full_name}</td>
+                    <td style={{ padding: '15px' }}>
+                      {guest.full_name && guest.full_name.split('\n').map((name, i) => (
+                        <div key={i} style={{ padding: '4px 0', fontWeight: i === 0 ? 'bold' : 'normal', color: i === 0 ? '#000' : '#444' }}>
+                          {i === 0 ? '• ' : '  - '}{name}
+                        </div>
+                      ))}
+                    </td>
 
                     <td style={{ padding: '15px', color: '#555' }}>
                       {new Date(guest.created_at).toLocaleString('es-CO')}
@@ -103,7 +109,8 @@ const GuestList = () => {
             </table>
             
             <div style={{ marginTop: '30px', textAlign: 'center', fontSize: '1.2rem', fontWeight: 'bold', color: '#b58843' }}>
-              Total de confirmaciones: {guests.length}
+              <div style={{ marginBottom: '10px' }}>Total de personas confirmadas: {guests.reduce((total, g) => total + (g.full_name ? g.full_name.split('\n').length : 0), 0)}</div>
+              <div style={{ fontSize: '0.9rem', color: '#666', fontWeight: 'normal' }}>(Familias/Grupos registrados: {guests.length})</div>
             </div>
           </div>
         )}
