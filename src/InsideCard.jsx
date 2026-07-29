@@ -12,15 +12,6 @@ const InsideCard = () => {
   const [hasTapped, setHasTapped] = useState(false);
   const [startAmbient, setStartAmbient] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 30 && !hasTapped) {
-        setHasTapped(true);
-      }
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [hasTapped]);
 
   useEffect(() => {
     if (hasTapped) {
@@ -37,7 +28,12 @@ const InsideCard = () => {
       initial={{ opacity: 0, scale: 0.9, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-      onClick={() => setHasTapped(true)}
+      onClick={() => !hasTapped && setHasTapped(true)}
+      onScroll={(e) => {
+        if (e.target.scrollTop > 30 && !hasTapped) {
+          setHasTapped(true);
+        }
+      }}
     >
       <InteractiveButterflies hasTapped={hasTapped} />
       <Butterflies startFlying={startAmbient} />
