@@ -91,6 +91,39 @@ const HeroSection = () => {
           Para vivir la magia y las emociones de este día tan especial, quiero estar rodeada de las personas que más amo. ¡Acompáñame a celebrar!
         </motion.p>
       </div>
+
+      {/* Indicador elegante de Scroll */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2.5, duration: 2 }}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          marginTop: '40px',
+          paddingBottom: '30px'
+        }}
+      >
+        <span style={{ 
+          fontFamily: 'Montserrat, sans-serif', 
+          fontSize: '0.75rem', 
+          textTransform: 'uppercase', 
+          letterSpacing: '3px', 
+          color: '#b58843',
+          marginBottom: '15px'
+        }}>
+          Desliza para descubrir
+        </span>
+        <div style={{ height: '60px', width: '1.5px', background: 'rgba(181, 136, 67, 0.2)', position: 'relative', overflow: 'hidden', borderRadius: '2px' }}>
+          <motion.div 
+            animate={{ top: ['-100%', '100%'] }}
+            transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+            style={{ position: 'absolute', left: 0, right: 0, height: '100%', background: 'linear-gradient(to bottom, transparent, #b58843, #d4af37, transparent)' }}
+          />
+        </div>
+      </motion.div>
+
     </div>
   );
 };
