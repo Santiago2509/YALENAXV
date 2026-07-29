@@ -56,40 +56,54 @@ const HeroSection = ({ hasScrolled }) => {
             pointerEvents: 'none'
           }}
         >
-          <div style={{
-            width: '18px',
-            height: '30px',
-            borderRadius: '15px',
-            border: '1.5px solid rgba(181, 136, 67, 0.8)',
-            display: 'flex',
-            justifyContent: 'center',
-            paddingTop: '4px',
-            marginBottom: '8px',
-            boxShadow: '0 0 10px rgba(255,255,255,0.4)',
-            backgroundColor: 'rgba(255,255,255,0.25)',
-            backdropFilter: 'blur(2px)'
-          }}>
-            <motion.div
-              animate={{ y: [0, 8, 0], opacity: [1, 0.5, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-              style={{
-                width: '2px',
-                height: '6px',
-                borderRadius: '1px',
-                background: '#b58843'
-              }}
-            />
-          </div>
-          <span style={{ 
-            fontFamily: 'Montserrat, sans-serif', 
-            fontSize: '0.65rem', 
-            textTransform: 'uppercase', 
-            letterSpacing: '3px', 
-            color: '#b58843',
-            textShadow: '0 0 5px rgba(255,255,255,0.8)'
-          }}>
-            Desliza
-          </span>
+          <motion.div 
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              background: 'rgba(255, 255, 255, 0.65)',
+              padding: '10px 15px',
+              borderRadius: '20px',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+              backdropFilter: 'blur(4px)'
+            }}
+          >
+            <div style={{
+              width: '22px',
+              height: '36px',
+              borderRadius: '11px',
+              border: '2px solid #b58843',
+              display: 'flex',
+              justifyContent: 'center',
+              paddingTop: '5px',
+              marginBottom: '6px',
+              backgroundColor: 'rgba(255,255,255,0.8)',
+            }}>
+              <motion.div
+                animate={{ y: [0, 12, 0], opacity: [1, 0.5, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                style={{
+                  width: '4px',
+                  height: '8px',
+                  borderRadius: '2px',
+                  background: '#b58843'
+                }}
+              />
+            </div>
+            <span style={{ 
+              fontFamily: 'Montserrat, sans-serif', 
+              fontSize: '0.75rem', 
+              fontWeight: 'bold',
+              textTransform: 'uppercase', 
+              letterSpacing: '3px', 
+              color: '#8c6420',
+              textShadow: '0px 1px 2px rgba(255,255,255,0.8)'
+            }}>
+              Desliza
+            </span>
+          </motion.div>
         </motion.div>
       )}
 
