@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import BackgroundEffects from './BackgroundEffects';
 import InsideCard from './InsideCard';
-import AudioPlayer from './components/AudioPlayer';
+
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,7 +72,7 @@ function App() {
       {isOpen && (
         <>
           <InsideCard />
-          <AudioPlayer />
+
         </>
       )}
     </div>
