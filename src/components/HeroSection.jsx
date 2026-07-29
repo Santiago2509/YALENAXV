@@ -5,7 +5,7 @@ import { CosmicVine, CosmicVineAlt } from './CornerOrnaments';
 const HeroSection = () => {
   return (
     <div className="hero-section">
-      <div className="card-header" style={{ paddingTop: '30px' }}>
+      <div className="card-header" style={{ paddingTop: '10px' }}>
         <motion.p
           className="font-cursive metallic-text"
           style={{ marginBottom: '-5px', fontSize: '2.8rem', fontWeight: 400, margin: 0 }}

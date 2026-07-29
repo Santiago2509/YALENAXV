@@ -38,7 +38,20 @@ const InsideCard = () => {
       <InteractiveButterflies hasTapped={hasTapped} />
       <Butterflies startFlying={startAmbient} />
 
-      <CosmicVine flipX={true} delay={0.5} absoluteTopRight={true} />
+      <CosmicVine 
+        flipX={true} 
+        delay={0.5} 
+        customStyle={{ 
+          position: 'absolute', 
+          top: 0, 
+          right: 0, 
+          zIndex: 5, 
+          width: '100%', 
+          display: 'flex', 
+          justifyContent: 'flex-end', 
+          padding: '10px'
+        }} 
+      />
       <HeroSection />
       
       <CosmicVine flipX={false} delay={0.2} />
