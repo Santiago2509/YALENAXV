@@ -78,7 +78,7 @@ const GuestList = () => {
                   textAlign: 'left'
                 }}>
                   <th style={{ padding: '15px' }}>Nombre</th>
-                  <th style={{ padding: '15px' }}>Acompañante</th>
+
                   <th style={{ padding: '15px' }}>Fecha de Confirmación</th>
                 </tr>
               </thead>
@@ -93,13 +93,7 @@ const GuestList = () => {
                     }}
                   >
                     <td style={{ padding: '15px', fontWeight: 'bold' }}>{guest.full_name}</td>
-                    <td style={{ padding: '15px' }}>
-                      {guest.with_plus_one ? (
-                        <span style={{ color: '#2ecc71', fontWeight: 'bold' }}>Sí</span>
-                      ) : (
-                        <span style={{ color: '#e74c3c' }}>No</span>
-                      )}
-                    </td>
+
                     <td style={{ padding: '15px', color: '#555' }}>
                       {new Date(guest.created_at).toLocaleString('es-CO')}
                     </td>

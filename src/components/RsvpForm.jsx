@@ -3,15 +3,21 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../supabaseClient';
 
 const RsvpForm = () => {
-  const [formData, setFormData] = useState({
-    name: ''
-  });
+  const [names, setNames] = useState(['']);
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleNameChange = (index, value) => {
+    const newNames = [...names];
+    newNames[index] = value;
+    setNames(newNames);
+  };
+
+  const addNameField = () => {
+    setNames([...names, '']);
+  };
+
+  const removeNameField = (index) => {
+    const newNames = names.filter((_, i) => i !== index);
+    setNames(newNames.length ? newNames : ['']);
   };
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,14 +30,17 @@ const RsvpForm = () => {
     setErrorMsg('');
 
     try {
+      const validNames = names.filter(n => n.trim() !== '');
+      if (validNames.length === 0) throw new Error('Debes ingresar al menos un nombre');
+
+      const insertData = validNames.map(name => ({
+        full_name: name.trim(),
+        with_plus_one: false,
+      }));
+
       const { error } = await supabase
         .from('rsvp_confirmations')
-        .insert([
-          {
-            full_name: formData.name,
-            with_plus_one: false,
-          }
-        ]);
+        .insert(insertData);
 
       if (error) throw error;
       setIsSuccess(true);
@@ -108,16 +117,44 @@ const RsvpForm = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
       >
         <div className="form-group">
-          <label htmlFor="name">Nombres de los asistentes</label>
-          <textarea 
-            id="name" 
-            name="name" 
-            rows="3"
-            placeholder="Escribe tu nombre y el de tus acompañantes (si aplica)" 
-            value={formData.name}
-            onChange={handleChange}
-            required 
-          ></textarea>
+          <label>Nombres de los asistentes</label>
+          <p style={{ fontSize: '0.9rem', marginBottom: '10px', color: '#666' }}>Agrega un campo por cada persona que asistirá.</p>
+          <AnimatePresence>
+            {names.map((name, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                style={{ display: 'flex', gap: '10px', marginBottom: '10px' }}
+              >
+                <input 
+                  type="text" 
+                  placeholder={`Invitado ${index + 1}`} 
+                  value={name}
+                  onChange={(e) => handleNameChange(index, e.target.value)}
+                  required={index === 0} 
+                  style={{ flex: 1 }}
+                />
+                {index > 0 && (
+                  <button 
+                    type="button" 
+                    onClick={() => removeNameField(index)}
+                    style={{ padding: '0 15px', background: '#e74c3c', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontFamily: 'Montserrat, sans-serif' }}
+                  >
+                    X
+                  </button>
+                )}
+              </motion.div>
+            ))}
+          </AnimatePresence>
+          <button 
+            type="button" 
+            onClick={addNameField}
+            style={{ width: '100%', padding: '10px', background: 'transparent', border: '2px dashed #b58843', color: '#b58843', borderRadius: '5px', cursor: 'pointer', marginTop: '10px', fontFamily: 'Montserrat, sans-serif', fontWeight: 'bold' }}
+          >
+            + Añadir otro invitado
+          </button>
         </div>
 
 
