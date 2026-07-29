@@ -73,6 +73,16 @@ const butterflyConfigs = [
   { id: 20, color: 'gold', start: { top: '50%', left: '82%', rotate: -15 }, end: { top: '30%', left: '140%' } },
   { id: 21, color: 'white', start: { top: '60%', left: '22%', rotate: 30 }, end: { top: '90%', left: '-30%' } },
   { id: 22, color: 'rose', start: { top: '58%', left: '78%', rotate: -30 }, end: { top: '80%', left: '130%' } },
+  { id: 23, color: 'gold', start: { top: '25%', left: '35%', rotate: 10 }, end: { top: '-40%', left: '20%' } },
+  { id: 24, color: 'white', start: { top: '22%', left: '60%', rotate: -20 }, end: { top: '-40%', left: '80%' } },
+  { id: 25, color: 'rose', start: { top: '80%', left: '30%', rotate: 70 }, end: { top: '130%', left: '10%' } },
+  { id: 26, color: 'gold', start: { top: '82%', left: '65%', rotate: -60 }, end: { top: '130%', left: '90%' } },
+  { id: 27, color: 'white', start: { top: '45%', left: '5%', rotate: 80 }, end: { top: '20%', left: '-50%' } },
+  { id: 28, color: 'rose', start: { top: '42%', left: '92%', rotate: -85 }, end: { top: '20%', left: '150%' } },
+  { id: 29, color: 'gold', start: { top: '55%', left: '8%', rotate: 45 }, end: { top: '70%', left: '-50%' } },
+  { id: 30, color: 'white', start: { top: '52%', left: '88%', rotate: -45 }, end: { top: '70%', left: '150%' } },
+  { id: 31, color: 'rose', start: { top: '35%', left: '50%', rotate: 5 }, end: { top: '-50%', left: '50%' } },
+  { id: 32, color: 'gold', start: { top: '65%', left: '50%', rotate: 175 }, end: { top: '150%', left: '50%' } },
 ];
 
 const InteractiveButterflies = ({ hasTapped }) => {
