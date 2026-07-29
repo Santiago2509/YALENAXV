@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { supabase } from '../supabaseClient';
 
 const RsvpForm = () => {
   const [formData, setFormData] = useState({
@@ -15,18 +16,51 @@ const RsvpForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí podemos definir a dónde enviar los datos, por ejemplo un enlace de WhatsApp
-    let message = `¡Hola Yalena! Confirmo mi asistencia a tus 15 años. Soy ${formData.name}.`;
-    if (formData.bringingGuest === 'yes') {
-      message += ` Iré acompañado/a de: ${formData.guests}.`;
+    setIsSubmitting(true);
+    setErrorMsg('');
+
+    try {
+      const { error } = await supabase
+        .from('rsvp_confirmations')
+        .insert([
+          {
+            full_name: formData.name + (formData.bringingGuest === 'yes' ? ` (con: ${formData.guests})` : ''),
+            with_plus_one: formData.bringingGuest === 'yes',
+          }
+        ]);
+
+      if (error) throw error;
+      setIsSuccess(true);
+    } catch (error) {
+      setErrorMsg('Hubo un error al enviar tu confirmación. Intenta de nuevo.');
+      console.error(error);
+    } finally {
+      setIsSubmitting(false);
     }
-    
-    // Suponiendo que el número de teléfono será añadido después
-    const encodedMessage = encodeURIComponent(message);
-    window.open(`https://wa.me/?text=${encodedMessage}`, '_blank');
   };
+
+  if (isSuccess) {
+    return (
+      <div className="rsvp-section">
+        <motion.h2 
+          className="section-title"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          ¡Gracias por confirmar!
+        </motion.h2>
+        <p style={{ textAlign: 'center', marginTop: '20px', color: '#000000', fontSize: '1.2rem' }}>Hemos guardado tu respuesta. ¡Nos vemos en la fiesta!</p>
+        <div style={{ paddingBottom: '60px' }}></div>
+      </div>
+    );
+  }
 
   return (
     <div className="rsvp-section">
@@ -137,8 +171,9 @@ const RsvpForm = () => {
           )}
         </AnimatePresence>
 
-        <button type="submit" className="action-button rsvp-submit">
-          Enviar Confirmación
+        {errorMsg && <p style={{ color: 'red', textAlign: 'center', marginBottom: '10px' }}>{errorMsg}</p>}
+        <button type="submit" className="action-button rsvp-submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Enviando...' : 'Enviar Confirmación'}
         </button>
       </motion.form>
       
