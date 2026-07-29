@@ -238,12 +238,11 @@
 }
 
 .parents-intro {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-family: 'Great Vibes', cursive;
+  font-size: 2.2rem;
   color: #000000;
   margin-bottom: 15px;
+  line-height: 1.2;
 }
 
 .parents-names {
