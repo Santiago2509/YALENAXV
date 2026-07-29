@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Butterflies = () => {
+const Butterflies = ({ startFlying = true }) => {
+  if (!startFlying) return null;
   const ButterflySVG = ({ color = "gold" }) => {
     let gradientId = "gold-butterfly-wings";
     if (color === "rose") gradientId = "rose-butterfly-wings";
