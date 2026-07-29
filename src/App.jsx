@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import BackgroundEffects from './BackgroundEffects';
 import InsideCard from './InsideCard';
+import AudioPlayer from './components/AudioPlayer';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -68,7 +69,12 @@ function App() {
       </AnimatePresence>
 
       {/* Aquí irá el contenido de la tarjeta una vez abierta */}
-      {isOpen && <InsideCard />}
+      {isOpen && (
+        <>
+          <InsideCard />
+          <AudioPlayer />
+        </>
+      )}
     </div>
   );
 }
