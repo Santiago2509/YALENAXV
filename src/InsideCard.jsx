@@ -13,6 +13,16 @@ const InsideCard = () => {
   const [startAmbient, setStartAmbient] = useState(false);
 
   useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 30 && !hasTapped) {
+        setHasTapped(true);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [hasTapped]);
+
+  useEffect(() => {
     if (hasTapped) {
       const timer = setTimeout(() => {
         setStartAmbient(true);
