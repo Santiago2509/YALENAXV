@@ -32,7 +32,7 @@ const AudioPlayer = () => {
   };
 
   return (
-    <div style={{ position: 'fixed', bottom: '20px', right: '20px', zIndex: 100 }}>
+    <div style={{ display: 'none' }}>
       {/* Busca el archivo cancion.mp3 en la carpeta public */}
       <audio ref={audioRef} src="/cancion.mp3" loop preload="auto" />
       
