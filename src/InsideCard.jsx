@@ -54,56 +54,13 @@ const InsideCard = () => {
           padding: '10px'
         }} 
       />
-      <HeroSection />
+      <HeroSection hasScrolled={hasScrolled} />
       
       <CosmicVine flipX={false} delay={0.2} />
       <EventDetails />
       
       <CosmicVineAlt flipX={true} delay={0.2} />
-      <GiftsSection />
-      
-      <CosmicVine flipX={false} delay={0.2} />
       <RsvpForm />
-
-      {/* Indicador de scroll fijo en la parte inferior inicial */}
-      {!hasScrolled && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ delay: 2, duration: 1 }}
-          style={{
-            position: 'fixed',
-            bottom: '20px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            zIndex: 100,
-            pointerEvents: 'none'
-          }}
-        >
-          <span style={{ 
-            fontFamily: 'Montserrat, sans-serif', 
-            fontSize: '0.75rem', 
-            textTransform: 'uppercase', 
-            letterSpacing: '2px', 
-            color: '#b58843',
-            marginBottom: '10px',
-            textShadow: '0 0 5px rgba(255,255,255,0.8)'
-          }}>
-            Desliza hacia abajo
-          </span>
-          <div style={{ height: '50px', width: '1.5px', background: 'rgba(181, 136, 67, 0.2)', position: 'relative', overflow: 'hidden', borderRadius: '2px' }}>
-            <motion.div 
-              animate={{ top: ['-100%', '100%'] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-              style={{ position: 'absolute', left: 0, right: 0, height: '100%', background: 'linear-gradient(to bottom, transparent, #b58843, #d4af37, transparent)' }}
-            />
-          </div>
-        </motion.div>
-      )}
     </motion.div>
   );
 };

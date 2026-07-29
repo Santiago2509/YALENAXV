@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CosmicVine, CosmicVineAlt } from './CornerOrnaments';
 
-const HeroSection = () => {
+const HeroSection = ({ hasScrolled }) => {
   return (
     <div className="hero-section">
       <div className="card-header" style={{ paddingTop: '60px', position: 'relative', zIndex: 10 }}>
@@ -36,6 +36,62 @@ const HeroSection = () => {
         />
         <img src="/quinceañera.png" alt="Quinceañera" className="quinceanera-photo" />
       </div>
+
+      {/* Nuevo Indicador de Scroll Elegante y Visible */}
+      {!hasScrolled && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 2, duration: 1 }}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            marginTop: '-60px', /* Lo subimos para que quede sobre las nubes/foto */
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            zIndex: 20,
+            pointerEvents: 'none'
+          }}
+        >
+          <div style={{
+            width: '18px',
+            height: '30px',
+            borderRadius: '15px',
+            border: '1.5px solid rgba(181, 136, 67, 0.8)',
+            display: 'flex',
+            justifyContent: 'center',
+            paddingTop: '4px',
+            marginBottom: '8px',
+            boxShadow: '0 0 10px rgba(255,255,255,0.4)',
+            backgroundColor: 'rgba(255,255,255,0.25)',
+            backdropFilter: 'blur(2px)'
+          }}>
+            <motion.div
+              animate={{ y: [0, 8, 0], opacity: [1, 0.5, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              style={{
+                width: '2px',
+                height: '6px',
+                borderRadius: '1px',
+                background: '#b58843'
+              }}
+            />
+          </div>
+          <span style={{ 
+            fontFamily: 'Montserrat, sans-serif', 
+            fontSize: '0.65rem', 
+            textTransform: 'uppercase', 
+            letterSpacing: '3px', 
+            color: '#b58843',
+            textShadow: '0 0 5px rgba(255,255,255,0.8)'
+          }}>
+            Desliza
+          </span>
+        </motion.div>
+      )}
 
       <div className="name-section">
         <motion.h1 
