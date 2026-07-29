@@ -1,16 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const defaultStyle = { filter: 'drop-shadow(0px 0px 8px rgba(212, 175, 55, 0.4))' };
-const getGradient = () => (
+// Sombra mejorada para los vectores
+const defaultStyle = { filter: 'drop-shadow(2px 2px 5px rgba(0,0,0,0.6))' };
+
+const getDefs = () => (
   <defs>
     <linearGradient id="cosmic-gold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stopColor="#d4af37" />
       <stop offset="50%" stopColor="#fff2cd" />
       <stop offset="100%" stopColor="#b58843" />
     </linearGradient>
+    {/* Estrella brillante */}
     <g id="star">
       <path d="M 10 0 L 12 8 L 20 10 L 12 12 L 10 20 L 8 12 L 0 10 L 8 8 Z" fill="url(#cosmic-gold)" />
+    </g>
+    {/* Hoja elegante (más grande) */}
+    <g id="leaf">
+      <path d="M0,0 C12,-12 30,-6 30,12 C30,12 18,18 0,0 Z" fill="url(#cosmic-gold)" opacity="0.95"/>
+    </g>
+    {/* Flor bien visible formada por 5 círculos (pétalos) y un centro */}
+    <g id="flower">
+      <circle cx="0" cy="-9" r="6" fill="url(#cosmic-gold)" />
+      <circle cx="8.5" cy="-2.7" r="6" fill="url(#cosmic-gold)" />
+      <circle cx="5.3" cy="7.3" r="6" fill="url(#cosmic-gold)" />
+      <circle cx="-5.3" cy="7.3" r="6" fill="url(#cosmic-gold)" />
+      <circle cx="-8.5" cy="-2.7" r="6" fill="url(#cosmic-gold)" />
+      <circle cx="0" cy="0" r="4.5" fill="#ffffff" />
     </g>
   </defs>
 );
@@ -32,7 +48,8 @@ export const CosmicVine = ({ flipX = false, flipY = false, delay = 0, customStyl
     >
       <div style={{ transform: `scaleX(${flipX ? -1 : 1}) scaleY(${flipY ? -1 : 1})` }}>
         <svg viewBox="0 0 250 250" width="160" height="160" style={defaultStyle}>
-          {getGradient()}
+          {getDefs()}
+          {/* Ramas principales */}
           <motion.path 
             d="M 5 5 C 80 5, 180 50, 180 120 C 180 180, 120 220, 80 220 C 40 220, 20 180, 20 140 C 20 100, 60 80, 100 80 C 140 80, 150 120, 140 140 C 130 160, 100 160, 90 140 C 80 120, 95 110, 110 120" 
             fill="none" stroke="url(#cosmic-gold)" strokeWidth="5.0" strokeLinecap="round"
@@ -45,12 +62,15 @@ export const CosmicVine = ({ flipX = false, flipY = false, delay = 0, customStyl
             initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 1 }} viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 2, ease: "easeInOut", delay: delay + 0.5 }}
           />
-          <motion.g initial={{ scale: 0, opacity: 0, rotate: -45 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.2 }}><use href="#star" x="160" y="30" transform="scale(0.8)" /></motion.g>
-          <motion.g initial={{ scale: 0, opacity: 0, rotate: 45 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.5 }}><use href="#star" x="40" y="180" transform="scale(1.2)" /></motion.g>
-          <motion.g initial={{ scale: 0, opacity: 0, rotate: 90 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.8 }}><use href="#star" x="220" y="140" transform="scale(0.6)" /></motion.g>
-          <motion.circle cx="120" cy="180" r="2" fill="#d4af37" initial={{opacity:0}} whileInView={{opacity:1}} viewport={{ once: true }} transition={{delay: delay + 1.5}} />
-          <motion.circle cx="100" cy="40" r="2.5" fill="#d4af37" initial={{opacity:0}} whileInView={{opacity:1}} viewport={{ once: true }} transition={{delay: delay + 1.7}} />
-          <motion.circle cx="200" cy="80" r="2" fill="#d4af37" initial={{opacity:0}} whileInView={{opacity:1}} viewport={{ once: true }} transition={{delay: delay + 1.9}} />
+          
+          {/* Elementos decorativos (estrellas, hojas, flores) */}
+          <motion.g initial={{ scale: 0, opacity: 0, rotate: -45 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.2 }}><use href="#flower" x="150" y="40" /></motion.g>
+          <motion.g initial={{ scale: 0, opacity: 0, rotate: 45 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.5 }}><use href="#leaf" x="50" y="170" transform="rotate(-30 50 170)" /></motion.g>
+          <motion.g initial={{ scale: 0, opacity: 0, rotate: 90 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.8 }}><use href="#star" x="220" y="140" /></motion.g>
+          
+          <motion.g initial={{ scale: 0, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.5 }}><use href="#leaf" x="110" y="180" transform="rotate(45 110 180)" /></motion.g>
+          <motion.g initial={{ scale: 0, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.7 }}><use href="#flower" x="90" y="50" /></motion.g>
+          <motion.g initial={{ scale: 0, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.9 }}><use href="#leaf" x="200" y="90" transform="rotate(110 200 90)" /></motion.g>
         </svg>
       </div>
     </div>
@@ -74,8 +94,8 @@ export const CosmicVineAlt = ({ flipX = false, flipY = false, delay = 0, customS
     >
       <div style={{ transform: `scaleX(${flipX ? -1 : 1}) scaleY(${flipY ? -1 : 1})` }}>
         <svg viewBox="0 0 250 250" width="160" height="160" style={defaultStyle}>
-          {getGradient()}
-          {/* Un patrón diferente: Una S alargada con remates rizados */}
+          {getDefs()}
+          {/* Ramas principales */}
           <motion.path 
             d="M 20 200 C -20 150, 40 80, 100 80 C 160 80, 220 50, 200 10 C 180 -20, 120 20, 140 60 C 160 100, 210 100, 230 140 C 250 180, 200 240, 140 220 C 80 200, 100 140, 140 160 C 160 170, 150 190, 130 190" 
             fill="none" stroke="url(#cosmic-gold)" strokeWidth="5.0" strokeLinecap="round"
@@ -88,20 +108,17 @@ export const CosmicVineAlt = ({ flipX = false, flipY = false, delay = 0, customS
             initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 1 }} viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 2, ease: "easeInOut", delay: delay + 0.5 }}
           />
-          <motion.g initial={{ scale: 0, opacity: 0, rotate: -45 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.2 }}><use href="#star" x="80" y="50" transform="scale(0.8)" /></motion.g>
-          <motion.g initial={{ scale: 0, opacity: 0, rotate: 45 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.5 }}><use href="#star" x="200" y="180" transform="scale(1.2)" /></motion.g>
-          <motion.g initial={{ scale: 0, opacity: 0, rotate: 90 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.8 }}><use href="#star" x="140" y="20" transform="scale(0.6)" /></motion.g>
-          <motion.circle cx="100" cy="120" r="2" fill="#d4af37" initial={{opacity:0}} whileInView={{opacity:1}} viewport={{ once: true }} transition={{delay: delay + 1.5}} />
-          <motion.circle cx="180" cy="80" r="2.5" fill="#d4af37" initial={{opacity:0}} whileInView={{opacity:1}} viewport={{ once: true }} transition={{delay: delay + 1.7}} />
-          <motion.circle cx="60" cy="210" r="2" fill="#d4af37" initial={{opacity:0}} whileInView={{opacity:1}} viewport={{ once: true }} transition={{delay: delay + 1.9}} />
+          
+          {/* Elementos decorativos */}
+          <motion.g initial={{ scale: 0, opacity: 0, rotate: -45 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.2 }}><use href="#flower" x="70" y="60" /></motion.g>
+          <motion.g initial={{ scale: 0, opacity: 0, rotate: 45 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.5 }}><use href="#star" x="200" y="180" /></motion.g>
+          <motion.g initial={{ scale: 0, opacity: 0, rotate: 90 }} whileInView={{ scale: 1, opacity: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.8 }}><use href="#leaf" x="140" y="30" transform="rotate(-60 140 30)" /></motion.g>
+          
+          <motion.g initial={{ scale: 0, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.5 }}><use href="#leaf" x="90" y="120" transform="rotate(30 90 120)" /></motion.g>
+          <motion.g initial={{ scale: 0, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.7 }}><use href="#flower" x="170" y="75" /></motion.g>
+          <motion.g initial={{ scale: 0, opacity: 0 }} whileInView={{ scale: 1, opacity: 1 }} viewport={{ once: true }} transition={{ duration: 1, delay: delay + 1.9 }}><use href="#leaf" x="50" y="210" transform="rotate(160 50 210)" /></motion.g>
         </svg>
       </div>
     </div>
   );
 };
-
-const CornerOrnaments = () => {
-  return null; 
-};
-
-export default CornerOrnaments;
