@@ -5,7 +5,17 @@ import { CosmicVine, CosmicVineAlt } from './CornerOrnaments';
 const HeroSection = () => {
   return (
     <div className="hero-section">
-      <div className="card-header" style={{ paddingTop: '10px' }}>
+      <div className="card-header" style={{ paddingTop: '30px' }}>
+        <motion.p
+          className="parents-intro"
+          style={{ marginBottom: '-10px', fontSize: '1.1rem', color: '#000000', letterSpacing: '2px' }}
+          initial={{ opacity: 0, y: -10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+        >
+          Acompáñame a celebrar
+        </motion.p>
         <motion.h1 
           className="font-cursive metallic-text"
           style={{ fontSize: '4.2rem', margin: '0 0 20px 0', fontWeight: 400 }}
