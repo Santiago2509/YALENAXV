@@ -43,8 +43,8 @@ const InsideCard = () => {
         delay={0.5} 
         customStyle={{ 
           position: 'absolute', 
-          top: '-15px', 
-          right: '-10px', 
+          top: '-40px', 
+          right: '-30px', 
           zIndex: 1, 
           width: '100%', 
           display: 'flex', 
