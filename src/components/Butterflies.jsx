@@ -131,6 +131,58 @@ const Butterflies = ({ startFlying = true }) => {
       >
         <ButterflySVG color="rose" />
       </motion.div>
+       {/* Nuevas mariposas ambientales */}
+       <motion.div 
+        className="butterfly"
+        initial={{ left: '-20%', top: '50%' }}
+        animate={{ 
+          left: ['-20%', '120%'],
+          top: ['50%', '20%', '60%', '10%'],
+          rotate: [45, 20, 45, 10]
+        }}
+        transition={{ duration: 25, repeat: Infinity, ease: "linear", delay: 3 }}
+      >
+        <ButterflySVG color="white" />
+      </motion.div>
+
+       <motion.div 
+        className="butterfly"
+        initial={{ left: '60%', top: '120%' }}
+        animate={{ 
+          top: ['120%', '-20%'],
+          left: ['60%', '30%', '50%'],
+          rotate: [-15, 15, -10]
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear", delay: 7 }}
+      >
+        <ButterflySVG color="gold" />
+      </motion.div>
+
+       <motion.div 
+        className="butterfly"
+        initial={{ left: '120%', top: '70%' }}
+        animate={{ 
+          left: ['120%', '-20%'],
+          top: ['70%', '90%', '40%'],
+          rotate: [-60, -30, -50]
+        }}
+        transition={{ duration: 28, repeat: Infinity, ease: "linear", delay: 1 }}
+      >
+        <ButterflySVG color="rose" />
+      </motion.div>
+
+       <motion.div 
+        className="butterfly"
+        initial={{ left: '10%', top: '-20%' }}
+        animate={{ 
+          top: ['-20%', '120%'],
+          left: ['10%', '30%', '0%'],
+          rotate: [180, 200, 170]
+        }}
+        transition={{ duration: 22, repeat: Infinity, ease: "linear", delay: 12 }}
+      >
+        <ButterflySVG color="white" />
+      </motion.div>
     </div>
   );
 };
