@@ -49,7 +49,14 @@ const HeroSection = () => {
         </motion.h1>
       </div>
 
-      <CosmicVine flipX={true} delay={0.6} />
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', position: 'relative', zIndex: 5, marginTop: '-20px', marginBottom: '-10px' }}>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+          <CosmicVine flipX={false} delay={0.6} customStyle={{ padding: '0 10px' }} />
+        </div>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+          <CosmicVine flipX={true} delay={0.6} customStyle={{ padding: '0 10px' }} />
+        </div>
+      </div>
       <div className="parents-section" style={{ marginTop: '30px' }}>
         <motion.p 
           className="parents-intro"
