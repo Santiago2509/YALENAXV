@@ -4,9 +4,7 @@ import { supabase } from '../supabaseClient';
 
 const RsvpForm = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    bringingGuest: 'no',
-    guests: ''
+    name: ''
   });
 
   const handleChange = (e) => {
@@ -30,8 +28,8 @@ const RsvpForm = () => {
         .from('rsvp_confirmations')
         .insert([
           {
-            full_name: formData.name + (formData.bringingGuest === 'yes' ? ` (con: ${formData.guests})` : ''),
-            with_plus_one: formData.bringingGuest === 'yes',
+            full_name: formData.name,
+            with_plus_one: false,
           }
         ]);
 
@@ -110,66 +108,19 @@ const RsvpForm = () => {
         transition={{ duration: 0.8, delay: 0.5 }}
       >
         <div className="form-group">
-          <label htmlFor="name">Nombre Completo</label>
-          <input 
-            type="text" 
+          <label htmlFor="name">Nombres de los asistentes</label>
+          <textarea 
             id="name" 
             name="name" 
-            placeholder="Escribe tu nombre" 
+            rows="3"
+            placeholder="Escribe tu nombre y el de tus acompañantes (si aplica)" 
             value={formData.name}
             onChange={handleChange}
             required 
-          />
+          ></textarea>
         </div>
 
-        <div className="form-group">
-          <label>¿Asistirás con alguien más?</label>
-          <div className="radio-group">
-            <label className="radio-label">
-              <input 
-                type="radio" 
-                name="bringingGuest" 
-                value="yes" 
-                checked={formData.bringingGuest === 'yes'}
-                onChange={handleChange}
-              />
-              <span>Sí</span>
-            </label>
-            <label className="radio-label">
-              <input 
-                type="radio" 
-                name="bringingGuest" 
-                value="no"
-                checked={formData.bringingGuest === 'no'}
-                onChange={handleChange}
-              />
-              <span>No</span>
-            </label>
-          </div>
-        </div>
 
-        <AnimatePresence>
-          {formData.bringingGuest === 'yes' && (
-            <motion.div 
-              className="form-group expand-animation"
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <label htmlFor="guests">Nombres de tus acompañantes</label>
-              <textarea 
-                id="guests" 
-                name="guests" 
-                placeholder="Escribe los nombres aquí" 
-                rows="3"
-                value={formData.guests}
-                onChange={handleChange}
-                required={formData.bringingGuest === 'yes'}
-              ></textarea>
-            </motion.div>
-          )}
-        </AnimatePresence>
 
         {errorMsg && <p style={{ color: 'red', textAlign: 'center', marginBottom: '10px' }}>{errorMsg}</p>}
         <button type="submit" className="action-button rsvp-submit" disabled={isSubmitting}>

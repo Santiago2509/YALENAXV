@@ -21,41 +21,6 @@ const GiftsSection = () => {
         </div>
       </motion.div>
 
-      <div className="dress-code-container">
-        <motion.h2 
-          className="section-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          Código de Vestimenta
-        </motion.h2>
-        <motion.p
-          className="dress-code-text detail-highlight"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.3 }}
-        >
-          Elegante Formal
-        </motion.p>
-      </div>
-
-      <motion.div 
-        className="section-divider small"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        <div className="churro-divider">
-           <svg viewBox="0 0 100 20" width="100%" height="20">
-              <path d="M20,10 Q50,0 80,10" fill="none" stroke="#b58843" strokeWidth="1.5" />
-           </svg>
-        </div>
-      </motion.div>
-
       <div className="gifts-container">
         <motion.h2 
           className="section-title"
@@ -64,7 +29,7 @@ const GiftsSection = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          Regalo
+          Lluvia de Sobres
         </motion.h2>
         
         <motion.div
