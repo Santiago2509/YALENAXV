@@ -117,12 +117,6 @@ const RsvpForm = ({ guestInfo }) => {
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.5 }}
       >
-        {guestInfo && guestInfo.pases > 1 && (
-          <div style={{ textAlign: 'center', marginBottom: '15px', color: '#b58843', fontWeight: 'bold', fontSize: '1.1rem' }}>
-            Tienes {guestInfo.pases} pases disponibles
-          </div>
-        )}
-
         <div className="form-group">
           <label>Nombres de los asistentes</label>
           {guestInfo && (
