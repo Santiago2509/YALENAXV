@@ -8,7 +8,7 @@ import Butterflies from './components/Butterflies';
 import InteractiveButterflies from './components/InteractiveButterflies';
 import { CosmicVine, CosmicVineAlt } from './components/CornerOrnaments';
 
-const InsideCard = () => {
+const InsideCard = ({ guestInfo }) => {
   const [hasTapped, setHasTapped] = useState(false);
   const [startAmbient, setStartAmbient] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
@@ -54,13 +54,13 @@ const InsideCard = () => {
           padding: '10px'
         }} 
       />
-      <HeroSection hasScrolled={hasScrolled} />
+      <HeroSection hasScrolled={hasScrolled} guestInfo={guestInfo} />
       
       <CosmicVine flipX={false} delay={0.2} />
       <EventDetails />
       
       <CosmicVineAlt flipX={true} delay={0.2} />
-      <RsvpForm />
+      <RsvpForm guestInfo={guestInfo} />
     </motion.div>
   );
 };

@@ -6,8 +6,14 @@ import GuestList from './components/GuestList.jsx'
 
 const path = window.location.pathname;
 
+let slug = null;
+if (path.startsWith('/invitacion/')) {
+  slug = path.replace('/invitacion/', '');
+  if (slug.endsWith('/')) slug = slug.slice(0, -1);
+}
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {path === '/asistencia' ? <GuestList /> : <App />}
+    {path === '/asistencia' ? <GuestList /> : <App slug={slug} />}
   </StrictMode>,
 )

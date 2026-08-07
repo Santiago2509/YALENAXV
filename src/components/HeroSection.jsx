@@ -2,10 +2,28 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CosmicVine, CosmicVineAlt } from './CornerOrnaments';
 
-const HeroSection = ({ hasScrolled }) => {
+const HeroSection = ({ hasScrolled, guestInfo }) => {
   return (
     <div className="hero-section">
-      <div className="card-header" style={{ paddingTop: '60px', position: 'relative', zIndex: 10 }}>
+      <div className="card-header" style={{ paddingTop: '50px', position: 'relative', zIndex: 10 }}>
+        {guestInfo && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            style={{
+              fontFamily: 'Montserrat, sans-serif',
+              fontSize: '1rem',
+              color: '#8c6420',
+              letterSpacing: '2px',
+              textTransform: 'uppercase',
+              marginBottom: '15px',
+              textShadow: '0 0 5px rgba(255,255,255,0.8)'
+            }}
+          >
+            Querida familia <br/> <strong style={{ fontSize: '1.2rem' }}>{guestInfo.nombre}</strong>
+          </motion.div>
+        )}
         <motion.p
           className="font-cursive metallic-text"
           style={{ marginBottom: '-5px', fontSize: '2.8rem', fontWeight: 400, margin: 0 }}

@@ -1,14 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './App.css';
 import BackgroundEffects from './BackgroundEffects';
 import InsideCard from './InsideCard';
 import AudioPlayer from './components/AudioPlayer';
+import { supabase } from './supabaseClient';
 
-function App() {
+function App({ slug }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [guestInfo, setGuestInfo] = useState(null);
+  const [loadingGuest, setLoadingGuest] = useState(!!slug);
+
+  useEffect(() => {
+    if (slug) {
+      const fetchGuest = async () => {
+        try {
+          const { data, error } = await supabase.rpc('get_invitado_by_slug', { p_slug: slug });
+          if (!error && data && data.length > 0) {
+            setGuestInfo(data[0]);
+          }
+        } catch (e) {
+          console.error(e);
+        } finally {
+          setLoadingGuest(false);
+        }
+      };
+      fetchGuest();
+    }
+  }, [slug]);
 
   const handleOpen = () => {
+    if (loadingGuest) return; // Esperar a que cargue antes de abrir
     setIsOpen(true);
     // Aquí más adelante podemos hacer que cambie a la siguiente vista
     console.log("Abriendo tarjeta...");
@@ -27,7 +49,11 @@ function App() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             {/* Animación del destello sobre el sello. Ahora este es el único elemento clickeable */}
-            <div className="seal-highlight" onClick={handleOpen}></div>
+            <div className="seal-highlight" onClick={handleOpen} style={{ cursor: loadingGuest ? 'wait' : 'pointer' }}>
+              {loadingGuest && (
+                <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', width: '20px', height: '20px', border: '3px solid rgba(255,255,255,0.3)', borderTop: '3px solid white', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
+              )}
+            </div>
             
             <motion.img 
               src="/sobre.png" 
@@ -71,7 +97,7 @@ function App() {
       {/* Aquí irá el contenido de la tarjeta una vez abierta */}
       {isOpen && (
         <>
-          <InsideCard />
+          <InsideCard guestInfo={guestInfo} />
           <AudioPlayer />
         </>
       )}

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { supabase } from '../supabaseClient';
 
-const RsvpForm = () => {
-  const [names, setNames] = useState(['']);
+const RsvpForm = ({ guestInfo }) => {
+  const [names, setNames] = useState(guestInfo ? [guestInfo.nombre] : ['']);
 
   const handleNameChange = (index, value) => {
     const newNames = [...names];
@@ -36,6 +36,7 @@ const RsvpForm = () => {
       const insertData = [{
         full_name: validNames.map(n => n.trim()).join('\n'),
         with_plus_one: false,
+        invitado_id: guestInfo ? guestInfo.id : null,
       }];
 
       const { error } = await supabase
@@ -116,8 +117,26 @@ const RsvpForm = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.5 }}
       >
+        {guestInfo && guestInfo.pases > 1 && (
+          <div style={{ textAlign: 'center', marginBottom: '15px', color: '#b58843', fontWeight: 'bold', fontSize: '1.1rem' }}>
+            Tienes {guestInfo.pases} pases disponibles
+          </div>
+        )}
+
         <div className="form-group">
           <label>Nombres de los asistentes</label>
+          {guestInfo && (
+            <p style={{ 
+              fontSize: '0.85rem', 
+              color: '#b58843', 
+              marginBottom: '10px', 
+              marginTop: '-5px',
+              fontStyle: 'italic',
+              textAlign: 'center'
+            }}>
+              *(Por favor, edita este cuadro y escribe únicamente los nombres reales de quienes asistirán)*
+            </p>
+          )}
           <p style={{ fontSize: '0.9rem', marginBottom: '10px', color: '#666' }}>Agrega un campo por cada persona que asistirá.</p>
           <AnimatePresence>
             {names.map((name, index) => (
