@@ -51,16 +51,22 @@ export const CosmicVine = ({ flipX = false, flipY = false, delay = 0, customStyl
           {getDefs()}
           {/* Ramas principales */}
           <motion.path 
-            d="M 5 5 C 80 5, 180 50, 180 120 C 180 180, 120 220, 80 220 C 40 220, 20 180, 20 140 C 20 100, 60 80, 100 80 C 140 80, 150 120, 140 140 C 130 160, 100 160, 90 140 C 80 120, 95 110, 110 120" 
-            fill="none" stroke="url(#cosmic-gold)" strokeWidth="5.0" strokeLinecap="round"
+            d="M 10 150 C 40 120, 100 100, 150 150 C 200 200, 250 100, 200 50 C 150 0, 100 50, 130 90 C 150 120, 180 100, 170 70" 
+            fill="none" stroke="url(#cosmic-gold)" strokeWidth="4.0" strokeLinecap="round"
             initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 1 }} viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 2.5, ease: "easeInOut", delay }}
           />
           <motion.path 
-            d="M 80 50 C 140 30, 220 50, 240 100 C 260 140, 220 180, 180 180 C 150 180, 140 150, 160 130 C 180 110, 200 130, 190 150" 
-            fill="none" stroke="url(#cosmic-gold)" strokeWidth="4.0" strokeLinecap="round"
+            d="M 50 135 C 80 80, 50 30, 90 20 C 130 10, 150 50, 120 70" 
+            fill="none" stroke="url(#cosmic-gold)" strokeWidth="3.0" strokeLinecap="round"
             initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 1 }} viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 2, ease: "easeInOut", delay: delay + 0.5 }}
+            transition={{ duration: 2, ease: "easeInOut", delay: delay + 0.3 }}
+          />
+          <motion.path 
+            d="M 100 135 C 120 180, 80 230, 50 200 C 20 170, 60 150, 80 170" 
+            fill="none" stroke="url(#cosmic-gold)" strokeWidth="3.0" strokeLinecap="round"
+            initial={{ pathLength: 0, opacity: 0 }} whileInView={{ pathLength: 1, opacity: 1 }} viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 2, ease: "easeInOut", delay: delay + 0.6 }}
           />
           
           {/* Elementos decorativos (estrellas, hojas, flores) */}
