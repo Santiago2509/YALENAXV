@@ -1,10 +1,11 @@
 import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
+import { CosmicVine, CosmicVineAlt } from './CornerOrnaments';
 
 const HeroSection = ({ hasScrolled, guestInfo }) => {
   return (
-    <div className="hero-section" style={{ textAlign: 'center' }}>
-      <div className="card-header" style={{ paddingTop: '60px', position: 'relative', zIndex: 10 }}>
+    <div className="hero-section">
+      <div className="card-header" style={{ paddingTop: '50px', position: 'relative', zIndex: 10 }}>
         {guestInfo && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -12,153 +13,148 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
             transition={{ duration: 1 }}
             style={{
               fontFamily: 'Montserrat, sans-serif',
-              fontSize: '0.9rem',
-              color: '#b76e79',
-              letterSpacing: '3px',
+              fontSize: '1rem',
+              color: '#8c6420',
+              letterSpacing: '2px',
               textTransform: 'uppercase',
-              marginBottom: '20px',
+              marginBottom: '15px',
+              textShadow: '0 0 5px rgba(255,255,255,0.8)'
             }}
           >
-            Invitación Especial <br/> 
-            <strong style={{ fontSize: '1.1rem', color: '#7b1113', letterSpacing: '1px', marginTop: '5px', display: 'inline-block' }}>
-              {guestInfo.nombre}
-            </strong>
+            Querida familia <br/> <strong style={{ fontSize: '1.2rem' }}>{guestInfo.nombre}</strong>
           </motion.div>
         )}
-        
         <motion.p
-          className="font-cursive text-burgundy"
-          style={{ fontSize: '3.5rem', fontWeight: 400, margin: 0, lineHeight: '1' }}
+          className="font-cursive"
+          style={{ marginBottom: '-5px', fontSize: '2.8rem', fontWeight: 400, margin: 0, color: '#b76e79' }}
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          Mis 15
+          Acompáñame a celebrar
         </motion.p>
-        
         <motion.h1 
           className="font-cursive text-burgundy"
-          style={{ fontSize: '5rem', margin: '10px 0 20px 0', fontWeight: 400, lineHeight: '1' }}
+          style={{ fontSize: '4.5rem', margin: '0 0 20px 0', fontWeight: 400 }}
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+        >
+          Mis 15 Años
+        </motion.h1>
+      </div>
+
+      <div className="photo-container">
+        <CosmicVineAlt 
+          flipX={false} 
+          delay={0.3} 
+          customStyle={{ position: 'absolute', top: '-60px', left: 0, zIndex: 10, width: '100%', pointerEvents: 'none' }} 
+        />
+        <img src="/quinceañera.png" alt="Quinceañera" className="quinceanera-photo" />
+      </div>
+
+      {/* Nuevo Indicador de Scroll Elegante y Visible */}
+      {!hasScrolled && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ delay: 2, duration: 1 }}
+          style={{
+            position: 'absolute',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            marginTop: '-60px', /* Lo subimos para que quede sobre las nubes/foto */
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            zIndex: 20,
+            pointerEvents: 'none'
+          }}
+        >
+          <motion.div 
+            animate={{ y: [0, -5, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              background: 'rgba(255, 255, 255, 0.65)',
+              padding: '10px 15px',
+              borderRadius: '20px',
+              boxShadow: '0 4px 15px rgba(0, 0, 0, 0.1)',
+              backdropFilter: 'blur(4px)'
+            }}
+          >
+            <div style={{
+              width: '22px',
+              height: '36px',
+              borderRadius: '11px',
+              border: '2px solid #b58843',
+              display: 'flex',
+              justifyContent: 'center',
+              paddingTop: '5px',
+              marginBottom: '6px',
+              backgroundColor: 'rgba(255,255,255,0.8)',
+            }}>
+              <motion.div
+                animate={{ y: [0, 12, 0], opacity: [1, 0.5, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+                style={{
+                  width: '4px',
+                  height: '8px',
+                  borderRadius: '2px',
+                  background: '#b58843'
+                }}
+              />
+            </div>
+            <span style={{ 
+              fontFamily: 'Montserrat, sans-serif', 
+              fontSize: '0.75rem', 
+              fontWeight: 'bold',
+              textTransform: 'uppercase', 
+              letterSpacing: '3px', 
+              color: '#8c6420',
+              textShadow: '0px 1px 2px rgba(255,255,255,0.8)'
+            }}>
+              Desliza
+            </span>
+          </motion.div>
+        </motion.div>
+      )}
+
+      <div className="name-section">
+        <motion.h1 
+          className="quinceanera-name text-burgundy font-cursive"
+          style={{ fontSize: '4rem', fontWeight: 400, margin: '20px 0', lineHeight: 1 }}
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.3 }}
         >
-          Yalena <br/> Karina
+          Yalena Karina <br/> Urbina Ruiz
         </motion.h1>
-
-        <motion.p
-          className="font-cursive"
-          style={{ marginBottom: '30px', fontSize: '2rem', color: '#b76e79' }}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.5 }}
-        >
-          Acompáñame a celebrar
-        </motion.p>
       </div>
 
-      <div className="photo-container" style={{ position: 'relative', width: '250px', height: '250px', margin: '0 auto', zIndex: 10 }}>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.6 }}
-          style={{
-            width: '100%',
-            height: '100%',
-            borderRadius: '50%',
-            overflow: 'hidden',
-            border: '6px solid rgba(255,255,255,0.9)',
-            boxShadow: '0 10px 30px rgba(123, 17, 19, 0.15)'
-          }}
-        >
-          <img src="/quinceañera.png" alt="Quinceañera" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }} />
-        </motion.div>
+      <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%', position: 'relative', zIndex: 5, marginTop: '-20px', marginBottom: '-10px' }}>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-start' }}>
+          <CosmicVine flipX={false} delay={0.6} customStyle={{ padding: '0 10px' }} />
+        </div>
+        <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+          <CosmicVine flipX={true} delay={0.6} customStyle={{ padding: '0 10px' }} />
+        </div>
       </div>
-
-      {/* Nuevo Indicador de Scroll Elegante */}
-      <AnimatePresence>
-        {!hasScrolled && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ delay: 2, duration: 1 }}
-            style={{
-              position: 'absolute',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              marginTop: '-40px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              zIndex: 20,
-              pointerEvents: 'none'
-            }}
-          >
-            <motion.div 
-              animate={{ y: [0, -5, 0] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                background: 'rgba(255, 255, 255, 0.7)',
-                padding: '10px 15px',
-                borderRadius: '20px',
-                boxShadow: '0 4px 15px rgba(0, 0, 0, 0.05)',
-                backdropFilter: 'blur(4px)'
-              }}
-            >
-              <div style={{
-                width: '20px',
-                height: '32px',
-                borderRadius: '10px',
-                border: '2px solid #b76e79',
-                display: 'flex',
-                justifyContent: 'center',
-                paddingTop: '4px',
-                marginBottom: '6px',
-                backgroundColor: 'rgba(255,255,255,0.9)'
-              }}>
-                <motion.div
-                  animate={{ y: [0, 8, 0], opacity: [1, 0, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  style={{
-                    width: '3px',
-                    height: '6px',
-                    borderRadius: '1.5px',
-                    background: '#7b1113'
-                  }}
-                />
-              </div>
-              <span style={{
-                fontFamily: 'Montserrat, sans-serif',
-                fontSize: '0.65rem',
-                textTransform: 'uppercase',
-                letterSpacing: '2px',
-                color: '#7b1113',
-                fontWeight: 600
-              }}>
-                Desliza
-              </span>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <div className="parents-section" style={{ marginTop: '50px' }}>
+      <div className="parents-section" style={{ marginTop: '30px' }}>
         <motion.p 
-          style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.85rem', color: '#b76e79', letterSpacing: '1px', textTransform: 'uppercase', marginBottom: '15px' }}
+          className="parents-intro"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          Con la bendición de Dios <br/> y el amor de mis padres
+          Con la bendición de Dios y el amor de mis padres
         </motion.p>
         <motion.div 
           className="parents-names"
@@ -166,24 +162,22 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.7 }}
-          style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '1.8rem', color: '#7b1113', lineHeight: '1.3', fontWeight: 600 }}
         >
           <p>Heraldo Urbina</p>
-          <p style={{ fontFamily: 'Great Vibes, cursive', fontSize: '2.5rem', margin: '5px 0', color: '#b76e79' }}>&</p>
+          <p className="parents-and">&</p>
           <p>Nora Ruiz</p>
         </motion.div>
       </div>
 
-      <div className="card-message" style={{ marginTop: '40px', padding: '0 20px' }}>
+      <div className="card-message" style={{ marginTop: '20px' }}>
         <motion.p
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.9 }}
-          style={{ fontFamily: 'Montserrat, sans-serif', fontSize: '0.9rem', color: '#4a4a4a', lineHeight: '1.8', textAlign: 'center' }}
         >
           Hay momentos en la vida que imaginamos, soñamos y esperamos con el corazón. Hoy, uno de esos sueños se hace realidad. <br/><br/>
-          Para vivir la magia y las emociones de este día tan especial, quiero estar rodeada de las personas que más amo.
+          Para vivir la magia y las emociones de este día tan especial, quiero estar rodeada de las personas que más amo. ¡Acompáñame a celebrar!
         </motion.p>
       </div>
 
