@@ -33,7 +33,7 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
                 textShadow: '0 2px 4px rgba(0,0,0,0.8)'
               }}
             >
-              Querida familia <br/> <strong style={{ fontSize: '1.1rem', lineHeight: '1.4', display: 'inline-block', maxWidth: '90%', margin: '0 auto' }}>SEÑOR HERALDO URBINA SRA E HIJOS</strong>
+              <strong style={{ fontSize: '1.1rem', lineHeight: '1.4', display: 'inline-block', maxWidth: '90%', margin: '0 auto' }}>SEÑOR HERALDO URBINA SRA E HIJOS</strong>
             </motion.div>
           
           <motion.p
