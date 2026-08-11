@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import HeroSection from './components/HeroSection';
 import EventDetails from './components/EventDetails';
 import GiftsSection from './components/GiftsSection';
+import Countdown from './components/Countdown';
 import RsvpForm from './components/RsvpForm';
 import Butterflies from './components/Butterflies';
 import InteractiveButterflies from './components/InteractiveButterflies';
@@ -62,6 +63,7 @@ const InsideCard = ({ guestInfo }) => {
         
 
         <EventDetails />
+        <Countdown />
         
 
         <RsvpForm guestInfo={guestInfo} />
