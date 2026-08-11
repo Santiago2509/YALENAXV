@@ -37,30 +37,33 @@ const InsideCard = ({ guestInfo }) => {
         }
       }}
     >
+      {/* Full screen photo background for the first viewport */}
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100vh',
+        backgroundImage: 'url(/quinceanera2.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        zIndex: 0
+      }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '30%', background: 'linear-gradient(to bottom, rgba(0,0,0,0.6), transparent)', pointerEvents: 'none' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '40%', background: 'linear-gradient(to top, #fffafb 2%, transparent)', pointerEvents: 'none' }} />
+      </div>
+
       <InteractiveButterflies hasTapped={hasTapped} />
       <Butterflies startFlying={startAmbient} />
 
-      <div className="geometric-frame">
-        <CosmicVine 
-          flipX={true} 
-          delay={0.5} 
-          customStyle={{ 
-            position: 'absolute', 
-            top: '-10px', 
-            right: '-10px', 
-            zIndex: 1, 
-            width: '100%', 
-            display: 'flex', 
-            justifyContent: 'flex-end', 
-            padding: '10px'
-          }} 
-        />
+      <div className="geometric-frame" style={{ zIndex: 10 }}>
+
         <HeroSection hasScrolled={hasScrolled} guestInfo={guestInfo} />
         
-        <CosmicVine flipX={false} delay={0.2} />
+
         <EventDetails />
         
-        <CosmicVineAlt flipX={true} delay={0.2} />
+
         <RsvpForm guestInfo={guestInfo} />
       </div>
     </motion.div>
