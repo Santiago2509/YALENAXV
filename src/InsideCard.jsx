@@ -40,27 +40,16 @@ const InsideCard = ({ guestInfo }) => {
       <InteractiveButterflies hasTapped={hasTapped} />
       <Butterflies startFlying={startAmbient} />
 
-      <CosmicVine 
-        flipX={true} 
-        delay={0.5} 
-        customStyle={{ 
-          position: 'absolute', 
-          top: '-10px', 
-          right: '-10px', 
-          zIndex: 1, 
-          width: '100%', 
-          display: 'flex', 
-          justifyContent: 'flex-end', 
-          padding: '10px'
-        }} 
-      />
-      <HeroSection hasScrolled={hasScrolled} guestInfo={guestInfo} />
-      
-      <CosmicVine flipX={false} delay={0.2} />
-      <EventDetails />
-      
-      <CosmicVineAlt flipX={true} delay={0.2} />
-      <RsvpForm guestInfo={guestInfo} />
+      <div className="geometric-frame">
+        <img src="/rosas.png" alt="Flores" className="floral-corner-tl" />
+        <img src="/rosas.png" alt="Flores" className="floral-corner-br" />
+        
+        <HeroSection hasScrolled={hasScrolled} guestInfo={guestInfo} />
+        
+        <EventDetails />
+        
+        <RsvpForm guestInfo={guestInfo} />
+      </div>
     </motion.div>
   );
 };
