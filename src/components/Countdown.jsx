@@ -9,7 +9,6 @@ const Countdown = () => {
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0,
   });
 
   useEffect(() => {
@@ -25,7 +24,6 @@ const Countdown = () => {
           days: Math.floor(distance / (1000 * 60 * 60 * 24)),
           hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
           minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-          seconds: Math.floor((distance % (1000 * 60)) / 1000),
         });
       }
     }, 1000);
@@ -101,7 +99,6 @@ const Countdown = () => {
           <NumberBox number={timeLeft.days} label="Días" />
           <NumberBox number={timeLeft.hours} label="Hrs" />
           <NumberBox number={timeLeft.minutes} label="Min" />
-          <NumberBox number={timeLeft.seconds} label="Seg" />
         </div>
       </motion.div>
     </div>
