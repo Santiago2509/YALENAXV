@@ -96,15 +96,15 @@ const EventDetails = () => {
             transition={{ duration: 2.5, repeat: Infinity, repeatDelay: 1.5, ease: 'easeInOut' }}
           />
 
-          <div className="detail-icon" style={{ marginBottom: '5px', position: 'relative', zIndex: 1 }}>
-            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="2.5em" width="2.5em" xmlns="http://www.w3.org/2000/svg"><path d="M464 128h-80V80c0-26.51-21.49-48-48-48H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v304c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32V176c0-26.51-21.49-48-48-48zM312 80c0-13.25-10.75-24-24-24h-64c-13.25 0-24 10.75-24 24v48h112V80zm144 376H56V176h400v280z"></path></svg>
+          <div className="detail-icon" style={{ marginBottom: '8px', position: 'relative', zIndex: 1 }}>
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="2.8em" width="2.8em" xmlns="http://www.w3.org/2000/svg"><path d="M464 128h-80V80c0-26.51-21.49-48-48-48H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v304c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32V176c0-26.51-21.49-48-48-48zM312 80c0-13.25-10.75-24-24-24h-64c-13.25 0-24 10.75-24 24v48h112V80zm144 376H56V176h400v280z"></path></svg>
           </div>
-          <h3 style={{ position: 'relative', zIndex: 1 }}>Ceremonia Religiosa</h3>
-          <p className="detail-highlight" style={{ fontSize: '1.3rem', position: 'relative', zIndex: 1 }}>28 de Agosto</p>
-          <p className="time-text" style={{ marginBottom: '15px', position: 'relative', zIndex: 1 }}>Viernes a las 6:00 PM</p>
-          <p className="detail-highlight" style={{ fontSize: '1.1rem', position: 'relative', zIndex: 1 }}>Iglesia San Rafael Arcángel</p>
-          <p style={{ position: 'relative', zIndex: 1 }}>Tangua, Nariño</p>
-          <a href="https://www.google.com/maps/place/Iglesia+San+Rafael+Arc%C3%A1ngel/@1.0942841,-77.3942423,21z/data=!4m12!1m5!3m4!2zMcKwMDUnNDIuNSJOIDc3wrAyMyc0My43Ilc!8m2!3d1.0951389!4d-77.3954722!3m5!1s0x8e2931e9522c0285:0x736808863ff74723!8m2!3d1.0941215!4d-77.3940719!16s%2Fg%2F1tfkxbzx?entry=ttu&g_ep=EgoyMDI2MDcyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="action-button" style={{ marginTop: '10px', position: 'relative', zIndex: 1 }}>
+          <h3 style={{ position: 'relative', zIndex: 1, fontSize: '1.2rem', fontWeight: 'bold' }}>Ceremonia Religiosa</h3>
+          <p className="detail-highlight" style={{ fontSize: '1.6rem', position: 'relative', zIndex: 1, margin: '8px 0' }}>28 de Agosto</p>
+          <p className="time-text" style={{ fontSize: '1.15rem', fontWeight: '500', marginBottom: '15px', position: 'relative', zIndex: 1 }}>Viernes a las 6:00 PM</p>
+          <p className="detail-highlight" style={{ fontSize: '1.35rem', position: 'relative', zIndex: 1, margin: '6px 0' }}>Iglesia San Rafael Arcángel</p>
+          <p style={{ fontSize: '1.15rem', position: 'relative', zIndex: 1, color: '#333' }}>Tangua, Nariño</p>
+          <a href="https://www.google.com/maps/place/Iglesia+San+Rafael+Arc%C3%A1ngel/@1.0942841,-77.3942423,21z/data=!4m12!1m5!3m4!2zMcKwMDUnNDIuNSJOIDc3wrAyMyc0My43Ilc!8m2!3d1.0951389!4d-77.3954722!3m5!1s0x8e2931e9522c0285:0x736808863ff74723!8m2!3d1.0941215!4d-77.3940719!16s%2Fg%2F1tfkxbzx?entry=ttu&g_ep=EgoyMDI2MDcyNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer" className="action-button" style={{ marginTop: '14px', padding: '12px 28px', fontSize: '1rem', position: 'relative', zIndex: 1 }}>
             Ver en GPS
           </a>
         </motion.div>
@@ -134,15 +134,15 @@ const EventDetails = () => {
             transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
           />
 
-          <div className="detail-icon" style={{ marginBottom: '5px', position: 'relative', zIndex: 1 }}>
-            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="2.5em" width="2.5em" xmlns="http://www.w3.org/2000/svg"><path d="M492.61 54.33a23.951 23.951 0 0 0-21.2-12.89H40.59a24.015 24.015 0 0 0-21.2 12.89 23.963 23.963 0 0 0 .39 24.62l128 202.7c18.59 29.43 45.31 52.12 77.01 64.65V464H176a16 16 0 0 0 0 32h160a16 16 0 0 0 0-32h-48.79V346.3c31.7-12.53 58.42-35.21 77.01-64.65l128-202.7a23.963 23.963 0 0 0 .39-24.62zM286.9 264.83a81.99 81.99 0 0 1-61.8 0L102.32 69.83C105.82 69.83 110.15 72 116.32 72h279.37c6.17 0 10.5-2.17 14-2.17l-122.79 195z"></path></svg>
+          <div className="detail-icon" style={{ marginBottom: '8px', position: 'relative', zIndex: 1 }}>
+            <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 512 512" height="2.8em" width="2.8em" xmlns="http://www.w3.org/2000/svg"><path d="M492.61 54.33a23.951 23.951 0 0 0-21.2-12.89H40.59a24.015 24.015 0 0 0-21.2 12.89 23.963 23.963 0 0 0 .39 24.62l128 202.7c18.59 29.43 45.31 52.12 77.01 64.65V464H176a16 16 0 0 0 0 32h160a16 16 0 0 0 0-32h-48.79V346.3c31.7-12.53 58.42-35.21 77.01-64.65l128-202.7a23.963 23.963 0 0 0 .39-24.62zM286.9 264.83a81.99 81.99 0 0 1-61.8 0L102.32 69.83C105.82 69.83 110.15 72 116.32 72h279.37c6.17 0 10.5-2.17 14-2.17l-122.79 195z"></path></svg>
           </div>
-          <h3 style={{ position: 'relative', zIndex: 1 }}>Recepción</h3>
-          <p className="detail-highlight" style={{ fontSize: '1.3rem', position: 'relative', zIndex: 1 }}>29 de Agosto</p>
-          <p className="time-text" style={{ marginBottom: '15px', position: 'relative', zIndex: 1 }}>Sábado a las 6:00 PM</p>
-          <p className="detail-highlight" style={{ fontSize: '1.1rem', position: 'relative', zIndex: 1 }}>Salón la Tangueñita</p>
-          <p style={{ position: 'relative', zIndex: 1 }}>Tangua, Nariño</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=1%C2%B005'42.5%22N+77%C2%B023'43.7%22W" target="_blank" rel="noopener noreferrer" className="action-button" style={{ marginTop: '10px', position: 'relative', zIndex: 1 }}>
+          <h3 style={{ position: 'relative', zIndex: 1, fontSize: '1.2rem', fontWeight: 'bold' }}>Recepción</h3>
+          <p className="detail-highlight" style={{ fontSize: '1.6rem', position: 'relative', zIndex: 1, margin: '8px 0' }}>29 de Agosto</p>
+          <p className="time-text" style={{ fontSize: '1.15rem', fontWeight: '500', marginBottom: '15px', position: 'relative', zIndex: 1 }}>Sábado a las 6:00 PM</p>
+          <p className="detail-highlight" style={{ fontSize: '1.35rem', position: 'relative', zIndex: 1, margin: '6px 0' }}>Salón la Tangueñita</p>
+          <p style={{ fontSize: '1.15rem', position: 'relative', zIndex: 1, color: '#333' }}>Tangua, Nariño</p>
+          <a href="https://www.google.com/maps/search/?api=1&query=1%C2%B005'42.5%22N+77%C2%B023'43.7%22W" target="_blank" rel="noopener noreferrer" className="action-button" style={{ marginTop: '14px', padding: '12px 28px', fontSize: '1rem', position: 'relative', zIndex: 1 }}>
             Ver en GPS
           </a>
         </motion.div>

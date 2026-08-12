@@ -79,26 +79,13 @@ const EnvelopeRain = () => {
           </div>
 
           <h3 className="font-cursive" style={{
-            fontSize: '2.2rem',
+            fontSize: '3rem',
             color: '#b76e79',
-            margin: '0 0 8px 0',
+            margin: '0',
             fontWeight: 400,
           }}>
             Lluvia de Sobres
           </h3>
-
-          <p style={{
-            fontFamily: 'Montserrat, sans-serif',
-            fontSize: '0.85rem',
-            color: '#8c6420',
-            textTransform: 'uppercase',
-            letterSpacing: '1.5px',
-            marginBottom: '16px',
-          }}>
-            Si deseas obsequiarme un regalo
-          </p>
-
-
         </div>
       </motion.div>
     </div>
