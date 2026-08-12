@@ -1,127 +1,127 @@
 import { motion } from 'framer-motion';
 
-const Sparkle = ({ cx, cy, delay, size = 12 }) => (
-  <motion.path
-    d={`M${cx},${cy - size} Q${cx},${cy} ${cx - size},${cy} Q${cx},${cy} ${cx},${cy + size} Q${cx},${cy} ${cx + size},${cy} Q${cx},${cy} ${cx},${cy - size}`}
-    fill="rgba(218, 165, 32, 0.7)" 
-    initial={{ scale: 0, opacity: 0, rotate: 0 }}
-    animate={{ scale: [0, 1, 0], opacity: [0, 1, 0], rotate: [0, 90, 180] }}
-    transition={{ duration: 4, repeat: Infinity, delay, ease: "easeInOut" }}
-    style={{ transformOrigin: `${cx}px ${cy}px` }}
-  />
-);
-
-const Curl = ({ d, delay }) => (
-  <motion.path
-    d={d}
-    fill="transparent"
-    stroke="rgba(218, 165, 32, 0.5)"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    initial={{ pathLength: 0, opacity: 0 }}
-    animate={{ pathLength: [0, 1, 1], opacity: [0, 1, 0] }}
-    transition={{ duration: 6, repeat: Infinity, delay, ease: "easeInOut" }}
-  />
-);
-
-const Leaf = ({ cx, cy, angle, delay }) => (
-  <motion.path
-    d={`M ${cx} ${cy} C ${cx+8} ${cy-8}, ${cx+16} ${cy-4}, ${cx+20} ${cy+4} C ${cx+12} ${cy+12}, ${cx+4} ${cy+8}, ${cx} ${cy}`}
-    fill="rgba(218, 165, 32, 0.3)"
-    stroke="rgba(218, 165, 32, 0.6)"
-    strokeWidth="1.5"
-    initial={{ scale: 0, opacity: 0, rotate: angle }}
-    animate={{ scale: [0, 1, 1], opacity: [0, 1, 0], rotate: angle }}
-    transition={{ duration: 6, repeat: Infinity, delay, ease: "easeInOut" }}
-    style={{ transformOrigin: `${cx}px ${cy}px` }}
-  />
-);
-
-const Flower = ({ cx, cy, delay }) => (
-  <motion.g
-    initial={{ scale: 0, opacity: 0, rotate: 0 }}
-    animate={{ scale: [0, 1, 1], opacity: [0, 1, 0], rotate: 45 }}
-    transition={{ duration: 6, repeat: Infinity, delay, ease: "easeInOut" }}
-    style={{ transformOrigin: `${cx}px ${cy}px` }}
+/* ── Destello en forma de estrella ── */
+const Twinkle = ({ top, left, delay, size = 12 }) => (
+  <motion.div
+    style={{
+      position: 'absolute',
+      top, left,
+      width: size, height: size,
+      pointerEvents: 'none',
+      zIndex: 1,
+    }}
+    animate={{ opacity: [0, 1, 0], scale: [0.5, 1.3, 0.5], rotate: [0, 45, 0] }}
+    transition={{ duration: 3.5, repeat: Infinity, delay, ease: 'easeInOut' }}
   >
-    <circle cx={cx} cy={cy} r="3" fill="rgba(218, 165, 32, 0.8)" />
-    <path d={`M ${cx} ${cy-3} C ${cx-5} ${cy-10}, ${cx+5} ${cy-10}, ${cx} ${cy-3}`} fill="rgba(218, 165, 32, 0.4)" stroke="rgba(218, 165, 32, 0.6)" strokeWidth="1"/>
-    <path d={`M ${cx} ${cy+3} C ${cx-5} ${cy+10}, ${cx+5} ${cy+10}, ${cx} ${cy+3}`} fill="rgba(218, 165, 32, 0.4)" stroke="rgba(218, 165, 32, 0.6)" strokeWidth="1"/>
-    <path d={`M ${cx-3} ${cy} C ${cx-10} ${cy-5}, ${cx-10} ${cy+5}, ${cx-3} ${cy}`} fill="rgba(218, 165, 32, 0.4)" stroke="rgba(218, 165, 32, 0.6)" strokeWidth="1"/>
-    <path d={`M ${cx+3} ${cy} C ${cx+10} ${cy-5}, ${cx+10} ${cy+5}, ${cx+3} ${cy}`} fill="rgba(218, 165, 32, 0.4)" stroke="rgba(218, 165, 32, 0.6)" strokeWidth="1"/>
-  </motion.g>
+    <svg viewBox="0 0 24 24" width={size} height={size}>
+      <line x1="12" y1="2" x2="12" y2="22" stroke="rgba(181,136,67,0.9)" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="2" y1="12" x2="22" y2="12" stroke="rgba(181,136,67,0.9)" strokeWidth="1.5" strokeLinecap="round"/>
+      <line x1="5" y1="5" x2="19" y2="19" stroke="rgba(181,136,67,0.5)" strokeWidth="1" strokeLinecap="round"/>
+      <line x1="19" y1="5" x2="5" y2="19" stroke="rgba(181,136,67,0.5)" strokeWidth="1" strokeLinecap="round"/>
+      <circle cx="12" cy="12" r="2" fill="rgba(181,136,67,1)"/>
+    </svg>
+  </motion.div>
+);
+
+/* ── Orbe/halo de brillo animado ── */
+const GlowOrb = ({ top, left, width, height, delay, color = 'rgba(181,136,67,0.10)' }) => (
+  <motion.div
+    style={{
+      position: 'absolute', top, left,
+      width, height,
+      borderRadius: '50%',
+      background: `radial-gradient(circle, ${color} 0%, transparent 70%)`,
+      pointerEvents: 'none',
+      zIndex: 1,
+    }}
+    animate={{ opacity: [0.3, 1, 0.3], scale: [0.9, 1.1, 0.9] }}
+    transition={{ duration: 5, repeat: Infinity, delay, ease: 'easeInOut' }}
+  />
+);
+
+/* ── Curva lateral SVG  ── */
+const SideCurve = ({ style, d, delay }) => (
+  <div style={{ position: 'absolute', pointerEvents: 'none', zIndex: 1, ...style }}>
+    <svg width="80" height="200" viewBox="0 0 80 200" fill="none">
+      <motion.path
+        d={d}
+        stroke="rgba(181,136,67,0.5)"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        fill="none"
+        initial={{ pathLength: 0, opacity: 0 }}
+        animate={{ pathLength: [0, 1, 1, 0], opacity: [0, 0.8, 0.8, 0] }}
+        transition={{ duration: 7, repeat: Infinity, delay, ease: 'easeInOut' }}
+      />
+    </svg>
+  </div>
 );
 
 export default function BackgroundEffects() {
+  const twinkles = [
+    { top: '22%',  left: '4%',  delay: 0,   size: 14 },
+    { top: '18%',  left: '88%', delay: 1.2, size: 11 },
+    { top: '35%',  left: '7%',  delay: 2.5, size: 16 },
+    { top: '38%',  left: '85%', delay: 0.7, size: 12 },
+    { top: '52%',  left: '3%',  delay: 3.1, size: 13 },
+    { top: '55%',  left: '90%', delay: 1.8, size: 10 },
+    { top: '68%',  left: '6%',  delay: 0.4, size: 15 },
+    { top: '72%',  left: '87%', delay: 2.0, size: 11 },
+    { top: '82%',  left: '5%',  delay: 1.5, size: 12 },
+    { top: '86%',  left: '88%', delay: 3.5, size: 14 },
+    { top: '30%',  left: '46%', delay: 2.8, size: 9  },
+    { top: '60%',  left: '50%', delay: 1.0, size: 10 },
+  ];
+
   return (
     <div style={{
       position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
+      top: 0, left: 0,
+      width: '100%', height: '100%',
       pointerEvents: 'none',
-      zIndex: 5,
-      overflow: 'hidden'
+      zIndex: 2,
+      overflow: 'hidden',
     }}>
-      <svg width="100%" height="100%" viewBox="0 0 400 800" preserveAspectRatio="xMidYMid slice" style={{ position: 'absolute' }}>
-        
-        {/* VECTORES DESORDENADOS APUNTANDO HACIA LA CARTA */}
-        
-        {/* Esquina Superior Izquierda hacia el centro */}
-        <Curl d="M -20 200 C 80 180, 50 280, 140 270 S 120 220, 160 210" delay={0} />
-        <Curl d="M 50 120 Q 150 180 100 240 T 170 240" delay={1.5} />
-        <Leaf cx={100} cy={240} angle={-30} delay={1.5} />
-        <Leaf cx={140} cy={270} angle={45} delay={0.5} />
-        <Flower cx={120} cy={220} delay={1} />
-        
-        {/* Esquina Superior Derecha hacia el centro */}
-        <Curl d="M 420 200 C 320 180, 350 280, 260 270 S 280 220, 240 210" delay={2} />
-        <Curl d="M 350 120 Q 250 180 300 240 T 230 240" delay={3.5} />
-        <Leaf cx={300} cy={240} angle={30} delay={3.5} />
-        <Leaf cx={260} cy={270} angle={-45} delay={2.5} />
-        <Flower cx={280} cy={220} delay={3} />
 
-        {/* Esquina Inferior Izquierda hacia el centro */}
-        <Curl d="M -20 600 C 80 620, 50 520, 140 530 S 120 580, 160 590" delay={1} />
-        <Curl d="M 50 680 Q 150 620 100 560 T 170 560" delay={2.5} />
-        <Leaf cx={100} cy={560} angle={-120} delay={2.5} />
-        <Leaf cx={140} cy={530} angle={135} delay={1.5} />
-        <Flower cx={120} cy={580} delay={2} />
+      {/* ── Patrón de puntos dorados (textura de fondo) ── */}
+      <div style={{
+        position: 'absolute', top: 0, left: 0,
+        width: '100%', height: '100%',
+        backgroundImage: 'radial-gradient(circle, rgba(181,136,67,0.22) 1px, transparent 1px)',
+        backgroundSize: '28px 28px',
+        pointerEvents: 'none',
+        zIndex: 1,
+      }} />
 
-        {/* Esquina Inferior Derecha hacia el centro */}
-        <Curl d="M 420 600 C 320 620, 350 520, 260 530 S 280 580, 240 590" delay={3} />
-        <Curl d="M 350 680 Q 250 620 300 560 T 230 560" delay={4.5} />
-        <Leaf cx={300} cy={560} angle={120} delay={4.5} />
-        <Leaf cx={260} cy={530} angle={-135} delay={3.5} />
-        <Flower cx={280} cy={580} delay={4} />
+      {/* ── Líneas diagonales sutiles ── */}
+      <div style={{
+        position: 'absolute', top: 0, left: 0,
+        width: '100%', height: '100%',
+        backgroundImage: 'repeating-linear-gradient(45deg, rgba(181,136,67,0.06) 0px, rgba(181,136,67,0.06) 1px, transparent 1px, transparent 40px)',
+        pointerEvents: 'none',
+        zIndex: 1,
+      }} />
 
-        {/* Vectores laterales desordenados apuntando al sobre */}
-        <Curl d="M 20 350 Q 80 400 50 450 T 90 480" delay={0.5} />
-        <Curl d="M 380 350 Q 320 400 350 450 T 310 480" delay={2.5} />
-        <Leaf cx={50} cy={450} angle={-90} delay={0.8} />
-        <Leaf cx={350} cy={450} angle={90} delay={2.8} />
+      {/* ── Orbes de brillo ── */}
+      <GlowOrb top="15%" left="-60px" width="200px" height="200px" delay={0}   color="rgba(181,136,67,0.13)" />
+      <GlowOrb top="42%" left="-50px" width="180px" height="180px" delay={2}   color="rgba(181,136,67,0.10)" />
+      <GlowOrb top="70%" left="-55px" width="190px" height="190px" delay={4}   color="rgba(181,136,67,0.12)" />
+      <GlowOrb top="15%" left="calc(100% - 140px)" width="200px" height="200px" delay={1}   color="rgba(181,136,67,0.11)" />
+      <GlowOrb top="50%" left="calc(100% - 130px)" width="180px" height="180px" delay={3}   color="rgba(181,136,67,0.10)" />
+      <GlowOrb top="78%" left="calc(100% - 145px)" width="195px" height="195px" delay={1.5} color="rgba(181,136,67,0.12)" />
 
-        {/* Algunos vectores saliendo de detrás del sobre aleatorios */}
-        <Curl d="M 200 400 Q 100 350 150 200" delay={4} />
-        <Curl d="M 200 400 Q 300 450 250 600" delay={1.5} />
-        
-        {/* SPARKLES MAGICOS DESORDENADOS */}
-        <Sparkle cx={80} cy={160} delay={0} size={15} />
-        <Sparkle cx={320} cy={140} delay={1.5} size={10} />
-        <Sparkle cx={180} cy={220} delay={3} size={8} />
-        <Sparkle cx={260} cy={180} delay={2} size={12} />
-        <Sparkle cx={120} cy={280} delay={0.5} size={14} />
-        <Sparkle cx={300} cy={270} delay={2.5} size={10} />
-        
-        <Sparkle cx={90} cy={640} delay={1} size={14} />
-        <Sparkle cx={300} cy={660} delay={2.5} size={10} />
-        <Sparkle cx={220} cy={580} delay={4} size={12} />
-        <Sparkle cx={140} cy={620} delay={0} size={8} />
-        <Sparkle cx={100} cy={520} delay={3.5} size={15} />
-        <Sparkle cx={320} cy={540} delay={1.5} size={12} />
+      {/* ── Curvas laterales izquierda ── */}
+      <SideCurve style={{ top: '20%', left: 0 }} d="M 5 10 C 30 50, 60 80, 20 120 S 50 160, 10 190" delay={0}   />
+      <SideCurve style={{ top: '48%', left: 0 }} d="M 10 5 C 50 40, 70 90, 15 130 S 55 170, 8 195"  delay={2.5} />
+      <SideCurve style={{ top: '73%', left: 0 }} d="M 5 15 C 35 55, 65 85, 18 125 S 52 165, 12 190" delay={5}   />
 
-      </svg>
+      {/* ── Curvas laterales derecha ── */}
+      <SideCurve style={{ top: '20%', right: 0 }} d="M 75 10 C 50 50, 20 80, 60 120 S 30 160, 70 190" delay={1.5} />
+      <SideCurve style={{ top: '48%', right: 0 }} d="M 70 5 C 30 40, 10 90, 65 130 S 25 170, 72 195"  delay={4}   />
+      <SideCurve style={{ top: '73%', right: 0 }} d="M 75 15 C 45 55, 15 85, 62 125 S 28 165, 68 190" delay={0.8} />
+
+      {/* ── Destellos ✦ ── */}
+      {twinkles.map((t, i) => <Twinkle key={i} {...t} />)}
     </div>
   );
 }

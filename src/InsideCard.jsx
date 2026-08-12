@@ -4,10 +4,12 @@ import HeroSection from './components/HeroSection';
 import EventDetails from './components/EventDetails';
 import GiftsSection from './components/GiftsSection';
 import Countdown from './components/Countdown';
+import EnvelopeRain from './components/EnvelopeRain';
 import RsvpForm from './components/RsvpForm';
 import Butterflies from './components/Butterflies';
 import InteractiveButterflies from './components/InteractiveButterflies';
 import { CosmicVine, CosmicVineAlt } from './components/CornerOrnaments';
+import BackgroundEffects from './BackgroundEffects';
 
 const InsideCard = ({ guestInfo }) => {
   const [hasTapped, setHasTapped] = useState(false);
@@ -57,12 +59,14 @@ const InsideCard = ({ guestInfo }) => {
       <InteractiveButterflies hasTapped={hasTapped} />
       <Butterflies startFlying={startAmbient} />
 
-      <div className="geometric-frame" style={{ zIndex: 10 }}>
+      <div className="geometric-frame" style={{ zIndex: 10, position: 'relative' }}>
+        <BackgroundEffects />
 
         <HeroSection hasScrolled={hasScrolled} guestInfo={guestInfo} />
         
 
         <EventDetails />
+        <EnvelopeRain />
         <Countdown />
         
 
