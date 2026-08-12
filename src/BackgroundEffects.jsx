@@ -87,8 +87,8 @@ export default function BackgroundEffects() {
       <div style={{
         position: 'absolute', top: 0, left: 0,
         width: '100%', height: '100%',
-        backgroundImage: 'radial-gradient(circle, rgba(181,136,67,0.22) 1px, transparent 1px)',
-        backgroundSize: '28px 28px',
+        backgroundImage: 'radial-gradient(circle, rgba(181,136,67,0.38) 1.5px, transparent 1.5px)',
+        backgroundSize: '26px 26px',
         pointerEvents: 'none',
         zIndex: 1,
       }} />
@@ -97,18 +97,18 @@ export default function BackgroundEffects() {
       <div style={{
         position: 'absolute', top: 0, left: 0,
         width: '100%', height: '100%',
-        backgroundImage: 'repeating-linear-gradient(45deg, rgba(181,136,67,0.06) 0px, rgba(181,136,67,0.06) 1px, transparent 1px, transparent 40px)',
+        backgroundImage: 'repeating-linear-gradient(45deg, rgba(181,136,67,0.10) 0px, rgba(181,136,67,0.10) 1px, transparent 1px, transparent 38px)',
         pointerEvents: 'none',
         zIndex: 1,
       }} />
 
       {/* ── Orbes de brillo ── */}
-      <GlowOrb top="15%" left="-60px" width="200px" height="200px" delay={0}   color="rgba(181,136,67,0.13)" />
-      <GlowOrb top="42%" left="-50px" width="180px" height="180px" delay={2}   color="rgba(181,136,67,0.10)" />
-      <GlowOrb top="70%" left="-55px" width="190px" height="190px" delay={4}   color="rgba(181,136,67,0.12)" />
-      <GlowOrb top="15%" left="calc(100% - 140px)" width="200px" height="200px" delay={1}   color="rgba(181,136,67,0.11)" />
-      <GlowOrb top="50%" left="calc(100% - 130px)" width="180px" height="180px" delay={3}   color="rgba(181,136,67,0.10)" />
-      <GlowOrb top="78%" left="calc(100% - 145px)" width="195px" height="195px" delay={1.5} color="rgba(181,136,67,0.12)" />
+      <GlowOrb top="15%" left="-60px" width="220px" height="220px" delay={0}   color="rgba(181,136,67,0.22)" />
+      <GlowOrb top="42%" left="-50px" width="200px" height="200px" delay={2}   color="rgba(181,136,67,0.18)" />
+      <GlowOrb top="70%" left="-55px" width="210px" height="210px" delay={4}   color="rgba(181,136,67,0.20)" />
+      <GlowOrb top="15%" left="calc(100% - 140px)" width="220px" height="220px" delay={1}   color="rgba(181,136,67,0.20)" />
+      <GlowOrb top="50%" left="calc(100% - 130px)" width="200px" height="200px" delay={3}   color="rgba(181,136,67,0.18)" />
+      <GlowOrb top="78%" left="calc(100% - 145px)" width="215px" height="215px" delay={1.5} color="rgba(181,136,67,0.20)" />
 
       {/* ── Curvas laterales izquierda ── */}
       <SideCurve style={{ top: '20%', left: 0 }} d="M 5 10 C 30 50, 60 80, 20 120 S 50 160, 10 190" delay={0}   />

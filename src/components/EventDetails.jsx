@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import ElegantDivider from './ElegantDivider';
 
 /* ── Destellos dorados para Ceremonia ── */
 const Sparkle = ({ top, left, delay, size }) => (
@@ -57,22 +58,7 @@ const EventDetails = () => {
 
   return (
     <div className="event-details-section">
-      <motion.div
-        className="section-divider"
-        initial={{ scaleX: 0 }}
-        whileInView={{ scaleX: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-      >
-        <div className="churro-divider">
-          <svg viewBox="0 0 200 30" width="100%" height="30">
-            <path d="M10,15 Q50,0 100,15 T190,15" fill="none" stroke="#b58843" strokeWidth="2" />
-            <circle cx="100" cy="15" r="4" fill="#b58843" />
-            <circle cx="10" cy="15" r="2" fill="#b58843" />
-            <circle cx="190" cy="15" r="2" fill="#b58843" />
-          </svg>
-        </div>
-      </motion.div>
+      <ElegantDivider />
 
       <motion.h2
         className="section-title"

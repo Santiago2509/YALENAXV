@@ -262,16 +262,16 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 40px 0;
+  margin: 50px 0;
 }
 
 .section-divider.small {
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 .churro-divider {
-  width: 80%;
-  max-width: 250px;
+  width: 90%;
+  max-width: 320px;
 }
 
 /* Hero Section */
@@ -294,13 +294,13 @@
 
 .parents-names {
   font-family: 'Great Vibes', cursive;
-  color: #b58843;
-  font-size: 2.6rem;
+  color: #b76e79;
+  font-size: 3.2rem;
   font-weight: 400;
   line-height: 1.3;
   text-transform: none;
   letter-spacing: 1px;
-  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
 }
 
 .parents-and {
@@ -326,11 +326,11 @@
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
-  color: #000000;
-  font-size: 2rem;
+  font-family: 'Great Vibes', cursive;
+  color: #b76e79;
+  font-size: 2.8rem;
   margin-bottom: 30px;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .details-cards {
@@ -348,7 +348,7 @@
 }
 
 .detail-icon {
-  color: #b58843;
+  color: #b76e79;
   margin-bottom: 15px;
 }
 
@@ -357,7 +357,7 @@
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #000000;
+  color: #b76e79;
   margin-bottom: 10px;
 }
 
@@ -378,7 +378,7 @@
   display: inline-block;
   margin-top: 15px;
   padding: 10px 25px;
-  background-color: #b58843;
+  background-color: #b76e79;
   color: white;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
@@ -386,14 +386,14 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 25px;
-  box-shadow: 0 4px 10px rgba(181, 136, 67, 0.4);
+  box-shadow: 0 4px 10px rgba(183, 110, 121, 0.4);
   transition: transform 0.2s, background-color 0.2s;
   border: none;
   cursor: pointer;
 }
 
 .action-button:hover {
-  background-color: #9c7335;
+  background-color: #a05060;
   transform: translateY(-2px);
 }
 
