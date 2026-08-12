@@ -18,7 +18,7 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
 
 
         {/* Top texts */}
-        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', paddingTop: '20px' }}>
+        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', paddingTop: '12px' }}>
             <motion.div
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -27,18 +27,18 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
                 fontFamily: 'Montserrat, sans-serif',
                 fontSize: '0.9rem',
                 color: '#fdf0a6',
-                letterSpacing: '2px',
+                letterSpacing: '1.5px',
                 textTransform: 'uppercase',
-                marginBottom: '10px',
+                marginBottom: '4px',
                 textShadow: '0 2px 4px rgba(0,0,0,0.8)'
               }}
             >
-              <strong style={{ fontSize: '0.95rem', lineHeight: '1.4', display: 'inline-block', maxWidth: '90%', margin: '0 auto' }}>SEÑOR HERALDO URBINA SRA E HIJOS</strong>
+              <strong style={{ fontSize: '0.8rem', lineHeight: '1.3', display: 'inline-block', maxWidth: '80%', margin: '0 auto' }}>SEÑOR HERALDO URBINA SRA E HIJOS</strong>
             </motion.div>
           
           <motion.p
             className="font-cursive"
-            style={{ marginBottom: '0', marginTop: '2px', fontSize: '2rem', fontWeight: 400, color: '#fdf0a6', textShadow: '2px 2px 5px rgba(0,0,0,0.7)' }}
+            style={{ marginBottom: '0', marginTop: '0px', fontSize: '1.7rem', fontWeight: 400, color: '#fdf0a6', textShadow: '2px 2px 5px rgba(0,0,0,0.7)' }}
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -48,7 +48,7 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
           </motion.p>
           <motion.h1 
             className="font-cursive"
-            style={{ fontSize: '3rem', margin: '0', fontWeight: 400, color: '#fdf0a6', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
+            style={{ fontSize: '2.5rem', margin: '0', fontWeight: 400, color: '#fdf0a6', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
