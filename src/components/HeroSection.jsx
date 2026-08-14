@@ -147,39 +147,85 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
 
 
 
-        <div className="parents-section" style={{ marginTop: '30px' }}>
-          <motion.p 
-            className="parents-intro"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+        <div style={{ width: '100%', maxWidth: '480px', margin: '20px auto 0' }}>
+          
+          {/* Imagen de flores ARRIBA (volteada y más cerca) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.5 }}
+            transition={{ duration: 1, delay: 0.4 }}
+            style={{ marginBottom: '0px', display: 'flex', justifyContent: 'center' }}
           >
-            Con la bendición de Dios y el amor de mis padres
-          </motion.p>
-          <motion.div 
-            className="parents-names"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.7 }}
-          >
-            <p>Heraldo Urbina</p>
-            <p className="parents-and">&</p>
-            <p>Nora Ruiz</p>
+            <img 
+              src="/debajo_texto.png" 
+              alt="Flores decorativas superior" 
+              style={{
+                width: '100%',
+                maxWidth: '460px',
+                height: 'auto',
+                objectFit: 'contain',
+                display: 'block',
+                transform: 'rotate(180deg)'
+              }} 
+            />
           </motion.div>
-        </div>
 
-        <div className="card-message" style={{ marginTop: '30px', paddingBottom: '40px' }}>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+          <div className="parents-section" style={{ marginTop: '5px' }}>
+            <motion.p 
+              className="parents-intro"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
+              Con la bendición de Dios y el amor de mis padres
+            </motion.p>
+            <motion.div 
+              className="parents-names"
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.7 }}
+            >
+              <p>Heraldo Urbina</p>
+              <p className="parents-and">&</p>
+              <p>Nora Ruiz</p>
+            </motion.div>
+          </div>
+
+          <div className="card-message" style={{ marginTop: '25px' }}>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.9 }}
+            >
+              Hay momentos en la vida que imaginamos, soñamos y esperamos con el corazón. Hoy, uno de esos sueños se hace realidad. <br/><br/>
+              Para vivir la magia y las emociones de este día tan especial, quiero estar rodeada de las personas que más amo. ¡Acompáñame a celebrar!
+            </motion.p>
+          </div>
+
+          {/* Imagen de flores DEBAJO (más cerca) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.9 }}
+            transition={{ duration: 1, delay: 1 }}
+            style={{ marginTop: '5px', display: 'flex', justifyContent: 'center' }}
           >
-            Hay momentos en la vida que imaginamos, soñamos y esperamos con el corazón. Hoy, uno de esos sueños se hace realidad. <br/><br/>
-            Para vivir la magia y las emociones de este día tan especial, quiero estar rodeada de las personas que más amo. ¡Acompáñame a celebrar!
-          </motion.p>
+            <img 
+              src="/debajo_texto.png" 
+              alt="Flores decorativas inferior" 
+              style={{
+                width: '100%',
+                maxWidth: '460px',
+                height: 'auto',
+                objectFit: 'contain',
+                display: 'block'
+              }} 
+            />
+          </motion.div>
         </div>
 
       </div>
