@@ -74,6 +74,47 @@ const InsideCard = ({ guestInfo }) => {
         
 
         <RsvpForm guestInfo={guestInfo} />
+
+        {/* Esquina de flores Inferior Izquierda — flip vertical */}
+        <motion.img
+          src="/esquina_flores.png"
+          alt="Esquina flores inferior izquierda"
+          initial={{ opacity: 0, x: -10, y: 10 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{
+            position: 'absolute',
+            bottom: '-43px',
+            left: '-10px',
+            width: '152px',
+            height: 'auto',
+            pointerEvents: 'none',
+            zIndex: 12,
+            scaleY: -1
+          }}
+        />
+
+        {/* Esquina de flores Inferior Derecha — flip horizontal + vertical */}
+        <motion.img
+          src="/esquina_flores.png"
+          alt="Esquina flores inferior derecha"
+          initial={{ opacity: 0, x: 10, y: 10 }}
+          whileInView={{ opacity: 1, x: 0, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{
+            position: 'absolute',
+            bottom: '-43px',
+            right: '-10px',
+            width: '152px',
+            height: 'auto',
+            pointerEvents: 'none',
+            zIndex: 12,
+            scaleX: -1,
+            scaleY: -1
+          }}
+        />
       </div>
     </motion.div>
   );
