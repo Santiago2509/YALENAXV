@@ -103,10 +103,10 @@ const Countdown = () => {
   return (
     <div style={{ padding: '10px 20px 40px', textAlign: 'center', background: '#fffafb' }}>
       <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
+        initial={{ opacity: 0, scale: 0.86, y: 45 }}
+        whileInView={{ opacity: 1, scale: 1, y: 0 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ type: 'spring', stiffness: 95, damping: 15, delay: 0.1 }}
         style={{
           background: 'linear-gradient(135deg, rgba(253, 240, 166, 0.12), rgba(181, 136, 67, 0.06))',
           borderRadius: '20px',

@@ -93,6 +93,22 @@ const butterflyConfigs = [
   { id: 40, color: 'white', start: { top: '50%', left: '75%', rotate: -75 }, end: { top: '80%', left: '140%' } },
   { id: 41, color: 'gold', start: { top: '45%', left: '20%', rotate: 65 }, end: { top: '30%', left: '-50%' } },
   { id: 42, color: 'rose', start: { top: '38%', left: '90%', rotate: -55 }, end: { top: '-10%', left: '150%' } },
+  // 15 mariposas posadas adicionales
+  { id: 43, color: 'white', start: { top: '26%', left: '28%', rotate: 15 }, end: { top: '-30%', left: '-10%' } },
+  { id: 44, color: 'gold',  start: { top: '28%', left: '72%', rotate: -25 }, end: { top: '-25%', left: '110%' } },
+  { id: 45, color: 'rose',  start: { top: '44%', left: '12%', rotate: 35 }, end: { top: '15%', left: '-40%' } },
+  { id: 46, color: 'white', start: { top: '46%', left: '88%', rotate: -40 }, end: { top: '25%', left: '140%' } },
+  { id: 47, color: 'gold',  start: { top: '54%', left: '14%', rotate: 50 }, end: { top: '65%', left: '-35%' } },
+  { id: 48, color: 'rose',  start: { top: '56%', left: '84%', rotate: -50 }, end: { top: '70%', left: '135%' } },
+  { id: 49, color: 'white', start: { top: '66%', left: '24%', rotate: 20 }, end: { top: '105%', left: '-20%' } },
+  { id: 50, color: 'gold',  start: { top: '64%', left: '72%', rotate: -20 }, end: { top: '100%', left: '120%' } },
+  { id: 51, color: 'rose',  start: { top: '36%', left: '46%', rotate: -5 }, end: { top: '-40%', left: '45%' } },
+  { id: 52, color: 'white', start: { top: '68%', left: '52%', rotate: 165 }, end: { top: '140%', left: '55%' } },
+  { id: 53, color: 'gold',  start: { top: '49%', left: '38%', rotate: 30 }, end: { top: '20%', left: '-25%' } },
+  { id: 54, color: 'rose',  start: { top: '49%', left: '62%', rotate: -30 }, end: { top: '20%', left: '125%' } },
+  { id: 55, color: 'white', start: { top: '78%', left: '18%', rotate: 75 }, end: { top: '125%', left: '-15%' } },
+  { id: 56, color: 'gold',  start: { top: '78%', left: '76%', rotate: -75 }, end: { top: '125%', left: '115%' } },
+  { id: 57, color: 'rose',  start: { top: '58%', left: '32%', rotate: 40 }, end: { top: '85%', left: '-30%' } },
 ];
 
 const InteractiveButterflies = ({ hasTapped }) => {

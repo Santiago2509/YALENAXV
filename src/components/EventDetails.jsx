@@ -75,10 +75,10 @@ const EventDetails = () => {
         {/* ── Tarjeta 1: Ceremonia con destellos dorados ── */}
         <motion.div
           className="detail-card"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.2 }}
+          initial={{ opacity: 0, y: 55, scale: 0.88, rotateX: 12 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ type: 'spring', stiffness: 90, damping: 15, delay: 0.15 }}
           style={{ position: 'relative', overflow: 'hidden' }}
         >
           {/* Destellos de fondo */}
@@ -112,10 +112,10 @@ const EventDetails = () => {
         {/* ── Tarjeta 2: Recepción con burbujas ── */}
         <motion.div
           className="detail-card"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.9, delay: 0.4 }}
+          initial={{ opacity: 0, y: 55, scale: 0.88, rotateX: 12 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, rotateX: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ type: 'spring', stiffness: 90, damping: 15, delay: 0.3 }}
           style={{ position: 'relative', overflow: 'hidden' }}
         >
           {/* Burbujas subiendo */}

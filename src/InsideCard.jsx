@@ -8,6 +8,7 @@ import EnvelopeRain from './components/EnvelopeRain';
 import RsvpForm from './components/RsvpForm';
 import Butterflies from './components/Butterflies';
 import InteractiveButterflies from './components/InteractiveButterflies';
+import FallingPetals from './components/FallingPetals';
 import { CosmicVine, CosmicVineAlt } from './components/CornerOrnaments';
 import BackgroundEffects from './BackgroundEffects';
 
@@ -55,6 +56,8 @@ const InsideCard = ({ guestInfo }) => {
         <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '30%', background: 'linear-gradient(to bottom, rgba(0,0,0,0.6), transparent)', pointerEvents: 'none' }} />
         <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '40%', background: 'linear-gradient(to top, #fffafb 2%, transparent)', pointerEvents: 'none' }} />
       </div>
+
+      <FallingPetals />
 
       <InteractiveButterflies hasTapped={hasTapped} />
       <Butterflies startFlying={startAmbient} />

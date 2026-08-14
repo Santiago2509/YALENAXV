@@ -75,22 +75,22 @@ const RsvpForm = ({ guestInfo }) => {
     <div className="rsvp-section">
       <ElegantDivider />
 
-      <motion.h2 
+      <motion.h2
         className="section-title"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 30, scale: 0.9 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ type: 'spring', stiffness: 100, damping: 15 }}
       >
         Confirmar Asistencia
       </motion.h2>
 
       <motion.p
         className="rsvp-subtitle"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1, delay: 0.3 }}
+        transition={{ type: 'spring', stiffness: 90, damping: 15, delay: 0.15 }}
       >
         Por favor, confírmame si podrás acompañarme en este día tan especial.<br/><br/><strong style={{ color: '#b58843', fontSize: '1.1rem' }}>La confirmación de asistencia es de carácter obligatorio.</strong>
       </motion.p>
@@ -98,10 +98,10 @@ const RsvpForm = ({ guestInfo }) => {
       <motion.form 
         className="rsvp-form"
         onSubmit={handleSubmit}
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.5 }}
+        initial={{ opacity: 0, y: 45, scale: 0.9 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ type: 'spring', stiffness: 90, damping: 15, delay: 0.25 }}
       >
         <div className="form-group">
           <label>Nombres de los asistentes</label>

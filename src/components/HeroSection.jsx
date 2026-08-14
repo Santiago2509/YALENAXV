@@ -17,12 +17,50 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
       }}>
 
 
+        {/* Esquina de flores Superior Izquierda */}
+        <motion.img 
+          src="/esquina_flores.png" 
+          alt="Esquina flores izquierda" 
+          initial={{ opacity: 0, scale: 0.8, x: -10, y: -10 }}
+          animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{
+            position: 'absolute',
+            top: '-43px',
+            left: '-10px',
+            width: '152px',
+            height: 'auto',
+            pointerEvents: 'none',
+            zIndex: 12
+          }}
+        />
+
+        {/* Esquina de flores Superior Derecha — espejo exacto de la izquierda */}
+        <motion.img 
+          src="/esquina_flores.png" 
+          alt="Esquina flores derecha" 
+          initial={{ opacity: 0, x: 10, y: -10 }}
+          animate={{ opacity: 1, x: 0, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          style={{
+            position: 'absolute',
+            top: '-43px',
+            right: '-10px',
+            width: '152px',
+            height: 'auto',
+            pointerEvents: 'none',
+            zIndex: 12,
+            scaleX: -1
+          }}
+        />
+
         {/* Top texts */}
-        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', paddingTop: '12px' }}>
+        <div style={{ position: 'relative', zIndex: 10, textAlign: 'center', paddingTop: '16px', paddingLeft: '80px', paddingRight: '80px' }}>
             <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+              initial={{ opacity: 0, y: -25, scale: 0.85 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ type: 'spring', stiffness: 120, damping: 14, delay: 0.1 }}
               style={{
                 fontFamily: 'Montserrat, sans-serif',
                 fontSize: '0.9rem',
@@ -41,20 +79,20 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
           <motion.p
             className="font-cursive"
             style={{ marginBottom: '0', marginTop: '0px', fontSize: '1.7rem', fontWeight: 400, color: '#fdf0a6', textShadow: '2px 2px 5px rgba(0,0,0,0.7)' }}
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -20, scale: 0.9 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.2 }}
+            transition={{ type: 'spring', stiffness: 100, damping: 15, delay: 0.25 }}
           >
             Acompáñame a celebrar
           </motion.p>
           <motion.h1 
             className="font-cursive"
             style={{ fontSize: '2.5rem', margin: '0', fontWeight: 400, color: '#fdf0a6', textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: -25, scale: 0.85 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1 }}
+            transition={{ type: 'spring', stiffness: 110, damping: 14, delay: 0.35 }}
           >
             Mis 15 Años
           </motion.h1>
@@ -72,10 +110,10 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
               color: '#fdf0a6',
               textShadow: '2px 2px 5px rgba(0,0,0,0.6), 0 0 15px rgba(253, 240, 166, 0.4)'
             }}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 35, scale: 0.88 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.3 }}
+            transition={{ type: 'spring', stiffness: 90, damping: 15, delay: 0.45 }}
           >
             Yalena Karina <br/> Urbina Ruiz
           </motion.h1>
@@ -149,22 +187,22 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
 
 
 
-        <div style={{ width: '100%', maxWidth: '480px', margin: '20px auto 0' }}>
+        <div style={{ width: '100%', maxWidth: '540px', margin: '15px auto 0' }}>
           
-          {/* Imagen de flores ARRIBA (volteada y más cerca) */}
+          {/* Imagen de flores ARRIBA (volteada y más grande) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.7, y: -20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 0.4 }}
-            style={{ marginBottom: '0px', display: 'flex', justifyContent: 'center' }}
+            transition={{ type: 'spring', stiffness: 100, damping: 16, delay: 0.2 }}
+            style={{ marginBottom: '-10px', display: 'flex', justifyContent: 'center' }}
           >
             <img 
               src="/debajo_texto.png" 
               alt="Flores decorativas superior" 
               style={{
-                width: '100%',
-                maxWidth: '460px',
+                width: '108%',
+                maxWidth: '520px',
                 height: 'auto',
                 objectFit: 'contain',
                 display: 'block',
@@ -173,7 +211,7 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
             />
           </motion.div>
 
-          <div className="parents-section" style={{ marginTop: '5px' }}>
+          <div className="parents-section" style={{ marginTop: '0px' }}>
             <motion.p 
               className="parents-intro"
               initial={{ opacity: 0 }}
@@ -196,7 +234,7 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
             </motion.div>
           </div>
 
-          <div className="card-message" style={{ marginTop: '25px' }}>
+          <div className="card-message" style={{ marginTop: '20px' }}>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -208,20 +246,20 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
             </motion.p>
           </div>
 
-          {/* Imagen de flores DEBAJO (más cerca) */}
+          {/* Imagen de flores DEBAJO (más pegada a Acompáñame a celebrar) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, scale: 0.7, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 1, delay: 1 }}
-            style={{ marginTop: '5px', display: 'flex', justifyContent: 'center' }}
+            transition={{ type: 'spring', stiffness: 100, damping: 16, delay: 0.4 }}
+            style={{ marginTop: '-45px', display: 'flex', justifyContent: 'center' }}
           >
             <img 
               src="/debajo_texto.png" 
               alt="Flores decorativas inferior" 
               style={{
-                width: '100%',
-                maxWidth: '460px',
+                width: '108%',
+                maxWidth: '520px',
                 height: 'auto',
                 objectFit: 'contain',
                 display: 'block'

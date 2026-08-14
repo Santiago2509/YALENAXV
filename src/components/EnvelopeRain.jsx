@@ -50,10 +50,10 @@ const EnvelopeRain = () => {
   return (
     <div style={{ padding: '40px 20px 30px', textAlign: 'center', background: '#fffafb' }}>
       <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
+        initial={{ opacity: 0, y: 55, scale: 0.88 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        viewport={{ once: true, margin: '-40px' }}
+        transition={{ type: 'spring', stiffness: 95, damping: 15, delay: 0.1 }}
         style={{
           background: 'linear-gradient(135deg, rgba(253,240,166,0.15), rgba(181,136,67,0.08))',
           borderRadius: '20px',
@@ -61,19 +61,35 @@ const EnvelopeRain = () => {
           border: '1px solid rgba(181,136,67,0.25)',
           boxShadow: '0 10px 30px rgba(0,0,0,0.04)',
           position: 'relative',
-          overflow: 'hidden',
+          overflow: 'visible',
           minHeight: '260px',
         }}
       >
+        {/* Marco de flores en el contorno (10% más grande) */}
+        <img 
+          src="/marco_flores.png" 
+          alt="Marco de flores" 
+          style={{
+            position: 'absolute',
+            top: '-32px',
+            left: '-32px',
+            width: 'calc(100% + 64px)',
+            height: 'calc(100% + 64px)',
+            objectFit: 'fill',
+            pointerEvents: 'none',
+            zIndex: 15
+          }} 
+        />
+
         {/* Falling envelopes animation */}
-        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', overflow: 'hidden', zIndex: 5 }}>
           {envelopes.map((env, i) => (
             <FallingEnvelope key={i} {...env} />
           ))}
         </div>
 
         {/* Content */}
-        <div style={{ position: 'relative', zIndex: 10 }}>
+        <div style={{ position: 'relative', zIndex: 10, padding: '20px 15px' }}>
           <div style={{ marginBottom: '12px' }}>
             <EnvelopeSVG size={52} color="#b58843" />
           </div>
