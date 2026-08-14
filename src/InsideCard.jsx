@@ -75,6 +75,33 @@ const InsideCard = ({ guestInfo }) => {
 
         <RsvpForm guestInfo={guestInfo} />
 
+        {/* Footer sutil de créditos */}
+        <div style={{ 
+          textAlign: 'center', 
+          padding: '25px 10px 15px', 
+          position: 'relative', 
+          zIndex: 15,
+          fontFamily: 'Montserrat, sans-serif',
+          fontSize: '0.75rem',
+          color: '#8c6420',
+          letterSpacing: '0.5px'
+        }}>
+          Creada por{' '}
+          <a 
+            href="https://portafolio-santiago-1b4w.vercel.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ 
+              color: '#b58843', 
+              fontWeight: '600', 
+              textDecoration: 'underline',
+              cursor: 'pointer'
+            }}
+          >
+            Santiago Dev
+          </a>
+        </div>
+
         {/* Esquina de flores Inferior Izquierda — flip vertical */}
         <motion.img
           src="/esquina_flores.png"
