@@ -33,7 +33,9 @@ const HeroSection = ({ hasScrolled, guestInfo }) => {
                 textShadow: '0 2px 4px rgba(0,0,0,0.8)'
               }}
             >
-              <strong style={{ fontSize: '0.8rem', lineHeight: '1.3', display: 'inline-block', maxWidth: '80%', margin: '0 auto' }}>SEÑOR HERALDO URBINA SRA E HIJOS</strong>
+              <strong style={{ fontSize: '0.8rem', lineHeight: '1.3', display: 'inline-block', maxWidth: '80%', margin: '0 auto' }}>
+                {guestInfo?.nombre || "Señor Alvaro Urbina Sra. e Hijos"}
+              </strong>
             </motion.div>
           
           <motion.p
