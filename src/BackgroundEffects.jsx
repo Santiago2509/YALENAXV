@@ -76,8 +76,8 @@ export default function BackgroundEffects() {
   return (
     <div style={{
       position: 'absolute',
-      top: 0, left: 0,
-      width: '100%', height: '100%',
+      top: '100vh', left: 0,
+      width: '100%', height: 'calc(100% - 100vh)',
       pointerEvents: 'none',
       zIndex: 2,
       overflow: 'hidden',
